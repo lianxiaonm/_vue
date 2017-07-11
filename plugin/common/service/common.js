@@ -120,6 +120,31 @@ export function isVNode(node) {
     return typeof node === 'object' && hasOwnProperty.call(node, 'componentOptions');
 };
 
+function forEachSorted(obj, iterator, context) {
+    var keys = Object.keys(obj).sort();
+    for (var i = 0; i < keys.length; i++) {
+        iterator.call(context, obj[keys[i]], keys[i]);
+    }
+    return keys;
+}
+export function toQueryString(params) {
+    var parts = [];
+    forEachSorted(params, function (value, key) {
+        if (value == null) return;
+        if (!isArray(value)) value = [value];
+        forEach(value, function (v) {
+            isObject(v) ? v = v instanceof Date ? v.toISOString() : toJson(v) : '';
+            parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(v));
+        });
+    });
+    return parts.join("&");
+}
+export function buildUrl(url, params) {
+    if (!params) return url;
+    var parts = toQueryString(params);
+    if (parts.length > 0) url += (url.indexOf('?') == -1 ? '?' : '&') + parts;
+    return url;
+}
 
 export const $body = {
     addClass: function () {

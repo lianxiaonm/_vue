@@ -9,7 +9,10 @@ const node_modules = path.resolve(__dirname, 'node_modules');
 module.exports = {
     entry: {
         vendor: ['vue','vue-router'],
-        app: ['./src/index.js']
+        app: ['./src/index.js'],
+        plugin: [
+            './plugin/picker.js'
+        ]
     },
     output: {
         path: path.resolve(__dirname, 'deployed'),

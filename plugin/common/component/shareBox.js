@@ -11,10 +11,10 @@ export default shareBox;
 
 const shareBoxConstructor = Vue.extend(shareBox);
 
-let shareBoxInstance, _opts;
+let shareBoxInstance;
 
 export const $shareBox = {
-    show(opts){
+    show(_opts){
         if (!shareBoxInstance || shareBoxInstance._isDestroyed) {
             shareBoxInstance = new shareBoxConstructor();
         }

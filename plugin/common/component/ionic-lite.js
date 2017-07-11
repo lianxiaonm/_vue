@@ -58,4 +58,5 @@ export const $modal = {
         }, noClose ? 0 : 400)
     }
 }
+//单例化pop
 export const $pop = extend({}, $modal);

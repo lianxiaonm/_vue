@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import msgBox from '../_component/msgBox.vue'
 import { $pop } from './ionic-lite'
-import { extend, sliceArgs, valueFn } from '../service/common'
+import { valueFn } from '../service/common'
 
 msgBox.install = Vue => {
     Vue.component(msgBox.name, msgBox);
@@ -10,7 +10,7 @@ export default msgBox;
 
 const msgBoxConstructor = Vue.extend(msgBox);
 
-let msgInstance, popStack = 0, _opts;
+let msgInstance;
 export const $msgBox = {
     show(_opts){
         if (!msgInstance || msgInstance._isDestroyed) {
@@ -43,4 +43,3 @@ export const $msgBox = {
         })
     }
 }
-const defaultPopOpts = {title: '', subTitle: '', btnList: [], click: valueFn(true)};
