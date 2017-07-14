@@ -9,7 +9,7 @@
 </template>
 <script type="text/babel">
     import _modal from '../mixins/modal'
-    import passwordMixin from '../mixins/password.mixins.js';
+    import passwordMixin from '../mixins/password';
     import keyboardSimple from '../keyboard/keyboard.simple.vue'
     export default {
         mixins    : [passwordMixin, _modal],
