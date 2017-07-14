@@ -3,29 +3,21 @@
  */
 import modal from '../container/modal.vue'
 import pop from '../container/pop.vue'
+import load from '../container/load.vue'
 
-import { $modal, $pop } from '../../component/ionic-lite'
 export default {
     components: {
         modal,
-        pop
+        pop,
+        load
     },
-    props: {
-        showModal: {
-            type: Boolean,
-            default: false
-        },
-        click: {
-            type: Function
-        }
+    props     : {
+        showModal: false,
+        click    : Function
     },
-    watch: {
+    watch     : {
         showModal(val){
-            if (!val) {
-                let classList = this.$el.classList;
-                if (classList.contains('popup-container')) $pop.hide()
-                else if (classList.contains('model-container')) $modal.hide()
-            }
+            val || this.$emit('update:showModal', val);//false外发...
         }
     }
 }

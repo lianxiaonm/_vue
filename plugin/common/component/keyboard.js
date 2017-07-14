@@ -1,46 +1,50 @@
 import Vue from 'vue'
-import keyboard from '../_component/keyboard.vue'
+import modalKeyboard from '../_component/keyboard/keyboard.modal.vue'
+import keyboard from '../_component/keyboard/keyboard.simple.vue'
 import { $modal } from './ionic-lite'
+import { extend, noop } from '../service/common'
 
-keyboard.install = Vue => {
-    Vue.component(keyboard.name, keyboard);
-}
-export default keyboard;
 
-const keyBoardConstructor = Vue.extend(keyboard);
+const ModalKeyboard = Vue.extend(modalKeyboard);
 
-let idCardKey = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'X', 0],
-    numberKey = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0],
-    simplePwdKey = [1, 2, 3, 4, 5, 6, 7, 8, 9, '*', 0],
-    keyboardInstance;
+let number   = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0],
+    idCard   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'X', 0],
+    password = [1, 2, 3, 4, 5, 6, 7, 8, 9, '*', 0];
+let _keyboard;
+
 export const $keyboard = {
     show(_opts){
         //组件不存在或者组件被销毁
-        if (!keyboardInstance || keyboardInstance._isDestroyed) {
-            keyboardInstance = new keyBoardConstructor();
+        if (!_keyboard || _keyboard._isDestroyed) {
+            _keyboard = new ModalKeyboard();
         }
-        $modal.show(keyboardInstance, _opts);
+        let click = _opts.click || noop;
+        $modal.show(_keyboard, extend(_opts, {
+            click: char => {
+                char == 'hide' ? this.hide() : click(char);
+            }
+        }));
     },
-    hide: $modal.hide.bind($modal),
-    number: function (isNine, callback) {
+    hide    : $modal.hide.bind($modal),
+    number  : function (isNine, callback) {
         this.show({
-            keys: numberKey.concat(isNine ? 'back' : 'hide'),
+            keys  : number.concat(isNine ? 'back' : 'hide'),
             others: isNine ? [] : ['back', '确定'],
-            click: callback
+            click : callback
         });
     },
-    idCard: function (isNine, callback) {
+    idCard  : function (isNine, callback) {
         this.show({
-            keys: idCardKey.concat(isNine ? 'back' : 'hide'),
+            keys  : idCard.concat(isNine ? 'back' : 'hide'),
             others: isNine ? [] : ['back', '确定'],
-            click: callback
+            click : callback
         });
     },
-    simplePwd: function (isNine, callback) {
+    password: function (isNine, callback) {
         this.show({
-            keys: simplePwdKey.concat(isNine ? 'back' : 'hide'),
+            keys  : password.concat(isNine ? 'back' : 'hide'),
             others: isNine ? [] : ['back', '确定'],
-            click: callback
+            click : callback
         });
     }
 }

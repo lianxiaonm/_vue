@@ -1,8 +1,8 @@
-let arr = [],
-    slice = arr.slice,
-    indexOf = arr.indexOf,
+let arr            = [],
+    slice          = arr.slice,
+    indexOf        = arr.indexOf,
     hasOwnProperty = Object.prototype.hasOwnProperty,
-    undefined = undefined;
+    undefined      = undefined;
 
 export const isBrowser = !!(typeof window !== 'undefined' && window.document);
 
@@ -85,7 +85,7 @@ export function extend(dst) { //浅复制 TXDX
         if (obj) {
             var keys = Object.keys(obj);
             for (var j = 0, jj = keys.length; j < jj; j++) {
-                var key = keys[j];
+                var key  = keys[j];
                 dst[key] = obj[key];
             }
         }
@@ -147,7 +147,7 @@ export function buildUrl(url, params) {
 }
 
 export const $body = {
-    addClass: function () {
+    addClass   : function () {
         toggleClass(body, sliceArgs(arguments).join(' '), true);
         return this;
     },
@@ -158,22 +158,22 @@ export const $body = {
     enableClass: function (shouldEnableClass) {
         return this[shouldEnableClass ? 'addClass' : 'removeClass'].apply(this, sliceArgs(arguments, 1));
     },
-    append: function (ele) {
+    append     : function (ele) {
         body.appendChild(ele.length ? ele[0] : ele);
         return this;
     },
-    remove: function (ele) {
+    remove     : function (ele) {
         body.removeChild(ele.length ? ele[0] : ele);
         return this;
     },
-    locked: function (remove) {
+    locked     : function (remove) {
         return this.enableClass(!remove, 'drop-open')
     },
-    _body: body
+    _body      : body
 };
 
 let dropElement = createElement('div', {className: 'backdrop-container'}),
-    dropHolds = 0;
+    dropHolds   = 0;
 $body.append(dropElement);
 export const $backdrop = {
     retain (){

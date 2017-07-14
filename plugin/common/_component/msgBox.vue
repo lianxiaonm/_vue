@@ -21,20 +21,16 @@
     import pop from './container/pop.vue'
     import _modal from './mixins/modal'
     export default {
-        mixins: [_modal],
-        props: {
-            title: {
-                type: String
-            },
-            subTitle: {
-                type: String
-            },
-            content: {
-                type: String,
+        mixins : [_modal],
+        props  : {
+            title   : String,
+            subTitle: String,
+            content : {
+                type   : String,
                 default: ''
             },
-            btnList: {
-                type: Array,
+            btnList : {
+                type   : Array,
                 default: []
             }
         },

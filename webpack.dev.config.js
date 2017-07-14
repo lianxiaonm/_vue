@@ -8,9 +8,9 @@ const node_modules = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
     entry: {
-        vendor: ['vue','vue-router'],
-        app: ['./src/index.js'],
-        plugin: [
+        vendor: ['vue','vue-router'],//框架核心模块
+        app: ['./src/index.js'],//业务代码
+        plugin: [//第三方代码
             './plugin/picker.js'
         ]
     },

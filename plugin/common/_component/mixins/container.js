@@ -2,16 +2,13 @@
 import { $backdrop } from '../../service/common'
 
 export default {
-    props: {
-        value: {
-            type: Boolean
-        }
+    props  : {
+        value: Boolean
     },
     data(){
-        this.value && setTimeout(() => this._show(), 16.7)
+        this.value && setTimeout(() => this._show(), 16.7);
         return {
-            show: false,
-            hide: false
+            show: false
         }
     },
     methods: {
@@ -19,10 +16,10 @@ export default {
             this.show = true;
         },
         _hide(){
-            this.show = this.hide = false;
+            this.show = false;
         }
     },
-    watch: {
+    watch  : {
         value(val){
             setTimeout(() => this[val ? '_show' : '_hide'](), 16.7)
         },

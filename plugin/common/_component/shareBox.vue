@@ -9,7 +9,6 @@
                     :class="item.className"
                     @click="_click(item)">{{item.text}}</li>
             </ul>
-            <button @click="_click(false)">取消</button>
         </div>
     </modal>
 </template>

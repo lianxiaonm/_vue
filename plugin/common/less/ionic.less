@@ -76,6 +76,15 @@
     z-index: 9994; background-color: rgba(0, 0, 0, 0.7); text-align: center; color: #FFF;
     -webkit-transition: all .3s; transition: all .3s; text-overflow: ellipsis;
     [class*='spinner-'] { fill: #FFF; stroke: #FFF; }
+    .circular { animation: loading-rotate 2s linear infinite; }
+    .path {
+        animation: loading-dash 1.5s ease-in-out infinite;
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: 0;
+        stroke-width: 2;
+        stroke: #20A0FF;
+        stroke-linecap: round
+    }
     .toast {
         > .icon-font { font-size: .41rem; .px2rem(margin-right, 12); }
     }
@@ -134,4 +143,25 @@
     background-color: #F8F8F8; color: #444; position: relative; display: inline-block; border: none; text-align: center; text-overflow: ellipsis;
     &.btn-positive { color: #3D98CC; }
     &.btn-default { color: #333 }
+}
+
+@keyframes loading-rotate {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes loading-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -40px
+    }
+    to {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -120px
+    }
 }
