@@ -3,7 +3,9 @@ import { $backdrop } from '../../service/common'
 
 export default {
     props  : {
-        value: Boolean
+        value: {
+            type: Boolean
+        }
     },
     data(){
         this.value && setTimeout(() => this._show(), 16.7);

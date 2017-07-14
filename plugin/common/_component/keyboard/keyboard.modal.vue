@@ -1,30 +1,37 @@
 <template>
     <modal v-model="showModal">
-        <simple v-if="[ getType ]"
-                :keys="keys"
-                :others="others"
-                :click="click"/>
+        <keyboard-simple v-if="type!='complex'"
+                         :keys="keys"
+                         :others="others"
+                         :click="click"/>
+        <keyboard-complex v-else :click="click"/>
     </modal>
 </template>
 <script type="text/babel">
-    import simple from './keyboard.simple.vue'
+    import keyboardSimple from './keyboard.simple.vue'
+    import keyboardComplex from './keyboard.complex.vue'
     import _modal from '../mixins/modal'
     export default {
         mixins    : [_modal],
         components: {
-            simple
+            keyboardSimple,
+            keyboardComplex
         },
         props     : {
-            type  : 'simple',
+            type  : {
+                type   : String,
+                default: 'simple'
+            },
             //simple 配置
-            keys  : [],
-            others: [],
+            keys  : {
+                type   : Array,
+                default: []
+            },
+            others: {
+                type   : Array,
+                default: []
+            },
             //complex 配置
-        },
-        computed  : {
-            getType(){
-                return this.type != 'complex';
-            }
         }
     }
 </script>

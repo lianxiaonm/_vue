@@ -5,8 +5,12 @@ export default {
             type   : Number,
             default: 6
         },
-        value : String,
-        submit: Function
+        value : {
+            type: String
+        },
+        submit: {
+            type: Function
+        }
     },
     data(){
         return {

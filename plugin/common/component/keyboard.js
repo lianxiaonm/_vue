@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import modalKeyboard from '../_component/keyboard/keyboard.modal.vue'
-import keyboard from '../_component/keyboard/keyboard.simple.vue'
 import { $modal } from './ionic-lite'
 import { extend, noop } from '../service/common'
 
@@ -28,6 +27,7 @@ export const $keyboard = {
     hide    : $modal.hide.bind($modal),
     number  : function (isNine, callback) {
         this.show({
+            type  : 'simple',
             keys  : number.concat(isNine ? 'back' : 'hide'),
             others: isNine ? [] : ['back', '确定'],
             click : callback
@@ -35,6 +35,7 @@ export const $keyboard = {
     },
     idCard  : function (isNine, callback) {
         this.show({
+            type  : 'simple',
             keys  : idCard.concat(isNine ? 'back' : 'hide'),
             others: isNine ? [] : ['back', '确定'],
             click : callback
@@ -42,9 +43,16 @@ export const $keyboard = {
     },
     password: function (isNine, callback) {
         this.show({
+            type  : 'simple',
             keys  : password.concat(isNine ? 'back' : 'hide'),
             others: isNine ? [] : ['back', '确定'],
             click : callback
+        });
+    },
+    complex : function (isNine, callback) {
+        this.show({
+            type : 'complex',
+            click: callback
         });
     }
 }

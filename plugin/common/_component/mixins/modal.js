@@ -12,8 +12,12 @@ export default {
         load
     },
     props     : {
-        showModal: false,
-        click    : Function
+        showModal: {
+            default: false
+        },
+        click    : {
+            type: Function
+        }
     },
     watch     : {
         showModal(val){

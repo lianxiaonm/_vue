@@ -15,6 +15,7 @@
         <button @click="keyboard('number')">number</button>
         <button @click="keyboard('idCard',true)">idCard-nine</button>
         <button @click="keyboard('idCard')">idCard</button>
+        <button @click="keyboard('complex')">complex</button>
     </div>
 </template>
 <script type="text/babel">

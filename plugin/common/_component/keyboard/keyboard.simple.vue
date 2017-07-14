@@ -15,9 +15,15 @@
 
     export default {
         props   : {
-            keys  : [],
-            others: [],
-            click : Function
+            keys  : {
+                default: []
+            },
+            others: {
+                default: []
+            },
+            click : {
+                type: Function
+            }
         },
         computed: {
             getClazz(){

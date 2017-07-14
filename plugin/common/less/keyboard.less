@@ -43,4 +43,48 @@
             &:last-of-type:before { content: none }
         }
     }
+    
+    &.complex { bottom: -1px !important; }
+    [class*=line_] {
+        display: flex; display: -webkit-flex; background: #D7DADF;
+        > li {
+            flex: 1; -webkit-flex: 1; text-align: center; color: #333; background-color: #FFF;
+            .px2rem(border-radius, 4); .px2rem(line-height, 80); .px2auto-multi(margin, 8, 6);
+            .px2rem(font-size, 30);
+            transition: transform .1s linear; -webkit-transition: transform .1s linear;
+            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .4); box-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+            &[class*=key-] {
+                background-color: #B7BDC6; background-repeat: no-repeat;
+                background-size: 44%; background-position: center;
+            }
+            &:active { transform: scale(.9); -webkit-transform: scale(.9); }
+            &.key-back { background-image: url(../images/key-back.png); }
+        }
+        
+    }
+    .line_1 { .px2auto-multi(padding, 0, 30) }
+    .line_2 > li {
+        &.key-switch, &.key-back { .px2auto-multi(padding, 0, 15); text-indent: -999rem; }
+    }
+    .line_3 > li {
+        &.space { .px2auto-multi(padding, 0, 94); }
+    }
+    //字母键盘小写
+    &.letter {
+        .line_2 > li.key-switch { background-image: url(../images/key-caps1.png); }
+    }
+    //字母键盘大写
+    &.upper-letter {
+        .line_2 > li.key-switch {
+            background-color: #FFF;
+            background-image: url(../images/key-caps2.png);
+        }
+    }
+    &.symbol {
+        .line_1 { .px2auto-multi(padding, 0) }
+        .line_2 > li {
+            &.key-switch { text-indent: 0rem; }
+        }
+    }
+    
 }
