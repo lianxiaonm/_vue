@@ -1,14 +1,33 @@
 import Vue from 'vue'
-import modalKeyboard from '../_component/keyboard/keyboard.modal.vue'
+import keyboardModal from '../_component/keyboard/keyboard.modal.vue'
+import keyboardSimple from '../_component/keyboard/keyboard.simple.vue'
+import keyboardComplex from '../_component/keyboard/keyboard.complex.vue'
 import { $modal } from './ionic-lite'
 import { extend, noop } from '../service/common'
 
+const components = [
+    keyboardSimple,
+    keyboardComplex,
+    keyboardModal
+]
+components.forEach(component => {
+    component.install = Vue => Vue.component(component.name, component);
+});
 
-const ModalKeyboard = Vue.extend(modalKeyboard);
+export default keyboardSimple;
+
+export {
+    keyboardSimple,
+    keyboardComplex,
+    keyboardModal
+}
+
+const ModalKeyboard = Vue.extend(keyboardModal);
 
 let number   = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0],
     idCard   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'X', 0],
     password = [1, 2, 3, 4, 5, 6, 7, 8, 9, '*', 0];
+
 let _keyboard;
 
 export const $keyboard = {

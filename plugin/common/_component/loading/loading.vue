@@ -14,7 +14,9 @@
     export default {
         mixins: [_modal],
         props : {
-            text: String
+            text: {
+                type: String
+            }
         }
     }
 </script>

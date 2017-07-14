@@ -1,7 +1,7 @@
 <template>
     <div class="key-body m-row" :class="[ getClazz ]">
         <slot/><!-- 内嵌插槽--组合组件  -->
-        <h5>壹钱包安全键盘</h5>
+        <h5><i/>壹钱包安全键盘</h5>
         <ul class="col number m-row" @click="_click">
             <li v-for="k in keys" class="col-4" :class="getClass(k)">{{k}}</li>
         </ul>

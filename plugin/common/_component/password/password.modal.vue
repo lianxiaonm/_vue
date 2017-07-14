@@ -1,20 +1,20 @@
 <template>
     <modal v-model="showModal">
-        <simple :keys="keys" :others="others" :click="input">
+        <keyboard-simple :keys="keys" :others="others" :click="input">
             <ul class="simple-pwd">
                 <li v-for="item in items" v-html="item"></li>
             </ul>
-        </simple>
+        </keyboard-simple>
     </modal>
 </template>
 <script type="text/babel">
     import _modal from '../mixins/modal'
     import passwordMixin from '../mixins/password.mixins.js';
-    import simple from '../keyboard/keyboard.simple.vue'
+    import keyboardSimple from '../keyboard/keyboard.simple.vue'
     export default {
         mixins    : [passwordMixin, _modal],
         components: {
-            simple
+            keyboardSimple
         },
         data(){
             return {
@@ -24,7 +24,6 @@
                 others: ['back', '确定']
             }
         },
-        computed  : {},
         watch     : {
             showModal(val){
                 //false同步值到外部...true内收置空密码

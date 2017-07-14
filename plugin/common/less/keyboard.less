@@ -2,10 +2,15 @@
 //require layout.less
 .key-body {
     position: absolute !important; bottom: -2px !important; width: 100%; background: #FFF;
-    > h5 { font-weight: normal; .px2rem(font-size, 24); text-align: center; line-height: 2.4; position: relative;
+    > h5 { font-weight: normal; .px2rem(font-size, 24); text-align: center; line-height: 2.6; position: relative;
         &:after {
             content: ''; position: absolute; bottom: 0; left: 0;
             transform-origin: 0 bottom; -webkit-transform-origin: 0 bottom;
+        }
+        > i {
+            background: url(../images/safe-icon.png) no-repeat bottom/75%;
+            position: relative; .px2rem(top, 6); .px2rem(margin-right, 6);
+            display: inline-block; .px2rem(height, 42); .px2rem(width, 36);
         }
     }
     &:before { transform-origin: 0 0; -webkit-transform-origin: 0 0; }

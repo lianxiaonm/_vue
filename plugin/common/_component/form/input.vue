@@ -17,24 +17,24 @@
     import '../../less/form.less'
 
     export default {
-        props: {
-            type: {
-                type: String,
+        props  : {
+            type       : {
+                type   : String,
                 default: 'text'
             },
-            value: {
+            value      : {
                 type: String
             },
-            maxLength: {
+            maxLength  : {
                 type: Number
             },
-            readonly: {
+            readonly   : {
                 type: Boolean
             },
             placeholder: {
                 type: String
             },
-            validate: {
+            validate   : {
                 type: Function
             }
         },
@@ -46,7 +46,7 @@
 
             }
         },
-        watch: {
+        watch  : {
             value(val){
 
             }

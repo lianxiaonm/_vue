@@ -2,19 +2,22 @@ import Vue from 'vue'
 
 import pop from '../_component/container/pop.vue'
 import modal from '../_component/container/modal.vue'
+import load from '../_component/container/load.vue'
 
 import { createElement, $body, sliceArgs, extend } from '../service/common'
 
 const components = [
     modal,
-    pop
+    pop,
+    load
 ]
 components.forEach(component => {
     component.install = Vue => Vue.component(component.name, component);
 })
 export {
     modal,
-    pop
+    pop,
+    load
 }
 export const $modal = {
     _el       : null,
@@ -57,6 +60,10 @@ export const $modal = {
             callback && callback.apply(null, sliceArgs(arguments, noClose ? 2 : 1))
         }, noClose ? 0 : 300)
     }
-}
+};
+
 //单例化pop
-export const $pop   = extend({}, $modal);
+export const $pop = extend({}, $modal);
+
+//单例load -- 用于toast 和loading
+export const $load = extend({}, $modal);
