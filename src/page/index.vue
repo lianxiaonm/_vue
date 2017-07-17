@@ -13,7 +13,7 @@
             <button @click="confirm(true)">confirm no title</button>
             <button @click="loading('加载中')">loading 加载中.</button>
             <button @click="loading()">loading</button>
-            <button @click="toast('toast提示语')">toast</button>
+            <button @click="toast('删除完成')">toast</button>
             <button @click="keyboard('password',true)">password-nine</button>
             <button @click="keyboard('password')">password</button>
             <button @click="keyboard('number',true)">number-nine</button>
@@ -88,7 +88,7 @@
                 $dialog.spinner(text);
             },
             toast(text){
-                $dialog.toast(text || 'toast提示...', $log.debug)
+                $dialog.toast(text || 'toast提示...', () => $log.debug('close'))
             },
             keyboard(key, isNine){
                 $keyboard[key](!!isNine, $log.debug);

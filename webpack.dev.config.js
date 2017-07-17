@@ -1,50 +1,50 @@
-const webpack = require('webpack');
-const path = require('path');
-const ExtractTxtPlugin = require('extract-text-webpack-plugin');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const webpack            = require('webpack');
+const path               = require('path');
+const ExtractTxtPlugin   = require('extract-text-webpack-plugin');
+const htmlWebpackPlugin  = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const node_modules = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
-    entry: {
-        vendor: ['vue','vue-router'],//框架核心模块
-        app: ['./src/index.js'],//业务代码
+    entry  : {
+        vendor: ['vue', 'vue-router'],//框架核心模块
+        app   : ['./src/index.js'],//业务代码
         plugin: [//第三方代码
             './plugin/picker.js'
         ]
     },
-    output: {
-        path: path.resolve(__dirname, 'deployed'),
-        filename: '[name].js',
+    output : {
+        path         : path.resolve(__dirname, 'deployed'),
+        filename     : '[name].js',
         chunkFilename: "[name].js",
-        publicPath: 'deployed/'
+        publicPath   : 'deployed/'
     },
     resolve: {
         alias: {
             extensions: ['', '.vue', '.js', '.jsx']
         }
     },
-    module: {
+    module : {
         loaders: [
             {
-                test: /\.(css|less)$/,
+                test  : /\.(css|less)$/,
                 loader: ExtractTxtPlugin.extract("style", "css!less", {publicPath: "/deployed"})
             },
             {
-                test: /\.js$/,
+                test  : /\.js$/,
                 loader: 'babel'
             },
             {
-                test: /\.vue$/,
+                test  : /\.vue$/,
                 loader: 'vue'
             },
             {
-                test: /\.(jpg|png|gif)$/,
+                test  : /\.(jpg|png|gif)$/,
                 loader: 'url?limit=4000&name=/images/[name].[ext]'
             },
             {
-                test: /\.(svg|ttf|woff|eot)$/,
+                test  : /\.(svg|ttf|woff|eot)$/,
                 loader: 'url?limit=4000&name=/fonts/[name].[ext]'
             }
         ]
@@ -57,9 +57,9 @@ module.exports = {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
+            name    : 'vendor',
             filename: 'vendor.js',
-            chunks: ['vendor', 'app']
+            chunks  : ['vendor', 'app']
         }),
         new ExtractTxtPlugin("[name].css", {
             allChunks: true
@@ -67,11 +67,14 @@ module.exports = {
         new htmlWebpackPlugin({
             template: './template.html',
             filename: '../index.html',
-            inject: 'body'
+            inject  : 'body'
         }),
+        //new webpack.optimize.UglifyJsPlugin({
+        //    compress: {warnings: false}
+        //}),
         new CleanWebpackPlugin(['deployed/*'], {
             root: __dirname,
-            dry: false
+            dry : false
         })
     ]
 }
