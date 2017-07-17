@@ -11,6 +11,8 @@ module.exports = {
         vendor: ['vue', 'vue-router'],//框架核心模块
         app   : ['./src/index.js'],//业务代码
         plugin: [//第三方代码
+            './plugin/mui-gesture.js',
+            './plugin/mui-scroll.js',
             './plugin/picker.js'
         ]
     },
@@ -41,11 +43,11 @@ module.exports = {
             },
             {
                 test  : /\.(jpg|png|gif)$/,
-                loader: 'url?limit=4000&name=/images/[name].[ext]'
+                loader: 'url?limit=2000&name=/images/[name].[ext]'
             },
             {
                 test  : /\.(svg|ttf|woff|eot)$/,
-                loader: 'url?limit=4000&name=/fonts/[name].[ext]'
+                loader: 'url?limit=2000&name=/fonts/[name].[ext]'
             }
         ]
     },

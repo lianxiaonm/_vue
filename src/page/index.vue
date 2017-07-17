@@ -15,13 +15,13 @@
             <button @click="loading()">loading</button>
             <button @click="toast('删除完成')">toast</button>
             <button @click="actionSheet()">actionSheet</button>
-            <button @click="keyboard('password',true)">password-nine</button>
-            <button @click="keyboard('password')">password</button>
-            <button @click="keyboard('number',true)">number-nine</button>
-            <button @click="keyboard('number')">number</button>
-            <button @click="keyboard('idCard',true)">idCard-nine</button>
-            <button @click="keyboard('idCard')">idCard</button>
-            <button @click="keyboard('complex')">complex</button>
+            <button @tap="keyboard('password',true)">password-nine</button>
+            <button @tap="keyboard('password')">password</button>
+            <button @tap="keyboard('number',true)">number-nine</button>
+            <button @tap="keyboard('number')">number</button>
+            <button @tap="keyboard('idCard',true)">idCard-nine</button>
+            <button @tap="keyboard('idCard')">idCard</button>
+            <button @tap="keyboard('complex')">complex</button>
         </div>
     </div>
 </template>
