@@ -94,6 +94,7 @@ export function extend(dst) { //浅复制 TXDX
 }
 
 export function createElement(tagName, attrMap) {
+    if (!isBrowser) return {};
     var element = document.createElement(tagName);
     forEach(attrMap, function (val, key) {
         element[key] = val;
@@ -174,7 +175,7 @@ export const $body = {
 
 let dropElement = createElement('div', {className: 'backdrop-container'}),
     dropHolds   = 0;
-$body.append(dropElement);
+isBrowser && $body.append(dropElement);
 export const $backdrop = {
     retain (){
         ++dropHolds && setTimeout(function () {

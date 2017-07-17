@@ -14,6 +14,7 @@
             <button @click="loading('加载中')">loading 加载中.</button>
             <button @click="loading()">loading</button>
             <button @click="toast('删除完成')">toast</button>
+            <button @click="actionSheet()">actionSheet</button>
             <button @click="keyboard('password',true)">password-nine</button>
             <button @click="keyboard('password')">password</button>
             <button @click="keyboard('number',true)">number-nine</button>
@@ -92,6 +93,9 @@
             },
             keyboard(key, isNine){
                 $keyboard[key](!!isNine, $log.debug);
+            },
+            actionSheet(){
+                $dialog.actionSheet(['拍照', '相册'], $log.debug)
             },
             log: $log.debug,
             shareClick(){

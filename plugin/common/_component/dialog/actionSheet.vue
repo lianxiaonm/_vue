@@ -1,0 +1,37 @@
+<template>
+    <modal v-model="showModal">
+        <div class="action-sheet">
+            <ul class="item-view">
+                <li v-for="(btn,idx) in btnList"
+                    @click="_click(idx)"
+                    class="item-list"
+                    v-html="btn.txt == null ? btn : btn.txt"/>
+            </ul>
+            <ul class="item-view">
+                <li class="item-list cancel" @click="_click(false)">取消</li>
+            </ul>
+        </div>
+    </modal>
+</template>
+<script type="text/babel">
+    import _modal from '../mixins/modal'
+    export default {
+        mixins : [_modal],
+        props  : {
+            btnList: {
+                type   : Array,
+                default: []
+            }
+        },
+        methods: {
+            _click(item){
+                switch (item) {
+                    case false:
+                        return this.showModal = false;
+                    default:
+                        this.click && this.click(item);
+                }
+            }
+        }
+    }
+</script>

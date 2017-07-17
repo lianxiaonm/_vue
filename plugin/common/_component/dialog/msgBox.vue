@@ -2,8 +2,8 @@
     <pop v-model="showModal">
         <div class="popup">
             <div class="popup-head" v-if="title">
-                <h3 class="popup-title">{{title}}</h3>
-                <h5 class="popup-sub-title" v-if="subTitle">{{subTitle}}</h5>
+                <h3 class="popup-title" v-html="title"/>
+                <h5 class="popup-sub-title" v-if="subTitle" v-html="subTitle"/>
             </div>
             <div class="popup-body">
                 <slot>{{ content }}</slot>
@@ -23,8 +23,12 @@
     export default {
         mixins : [_modal],
         props  : {
-            title   : String,
-            subTitle: String,
+            title   : {
+                type: String
+            },
+            subTitle: {
+                type: String
+            },
             content : {
                 type   : String,
                 default: ''
