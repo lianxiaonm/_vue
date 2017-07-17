@@ -148,40 +148,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: normal }
     font-family: "iconfont-tools" !important;
 }
 
-//壹钱包头
-.yqb-header {
-    position: fixed; top: 0; left: 0; right: 0; background: #FFF; z-index: 999;
-    box-shadow: 0 0 1px #999; -webkit-box-shadow: 0 0 1px #999;
-    .px2rem(height, 100); .px2rem(font-size, 30);
-    .head-left, .head-right {
-        position: absolute; top: 0; color: #666; .px2rem(height, 100);
-        > i {
-            .px2rem(line-height, 100);
-            .px2rem(height, 100);
-            display: inline-block;
-            .px2auto-multi(padding, 0, 20);
-            font-style: normal;
-            &.icon {
-                .px2rem(width, 90); background-size: 50%;
-                background-position: center;
-                background-image: url(../images/icon-more.png);
-                background-repeat: no-repeat;
-            }
-            + i { padding-left: 0 }
-            &:active { opacity: .5 }
-        }
-    }
-    .head-left { left: 0 }
-    .head-right { right: 0 }
-    .head-title {
-        .px2rem(line-height, 100); font-weight: normal;
-        text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
-        .px2auto-multi(padding, 0, 160); text-align: center;
-    }
-    + .page-body { .px2rem(padding-top, 99) }
-    + .scroll-wrapper { .px2rem(top, 99); }
-}
-
 .page-body { position: absolute; top: 0; bottom: 0; left: 0; width: 100%; overflow-y: auto; overflow-x: hidden; }
 
 .scroll-wrapper {

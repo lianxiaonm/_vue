@@ -18,8 +18,8 @@
     </pop>
 </template>
 <script type="text/babel">
-    import pop from './container/pop.vue'
-    import _modal from './mixins/modal'
+    import pop from '../container/pop.vue'
+    import _modal from '../mixins/modal'
     export default {
         mixins : [_modal],
         props  : {

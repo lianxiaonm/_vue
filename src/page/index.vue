@@ -1,39 +1,51 @@
 <template>
     <div>
-        <password v-model="password"/>
-        {{password}}
-        <button @click="share()">share</button>
-        <button @click="click('showPassword')">showPassword</button>
-        <password-modal :show-modal.sync="showPassword" v-model="password"/>
-        <button @click="alert(false)">alert</button>
-        <button @click="alert(true)">alert no title</button>
-        <button @click="confirm(false)">confirm</button>
-        <button @click="confirm(true)">confirm no title</button>
-        <button @click="keyboard('password',true)">password-nine</button>
-        <button @click="keyboard('password')">password</button>
-        <button @click="keyboard('number',true)">number-nine</button>
-        <button @click="keyboard('number')">number</button>
-        <button @click="keyboard('idCard',true)">idCard-nine</button>
-        <button @click="keyboard('idCard')">idCard</button>
-        <button @click="keyboard('complex')">complex</button>
+        <yqbHead :options="options"/>
+        <div class="page-body">
+            <password v-model="password"/>
+            <p>{{password}}</p>
+            <button @click="share()">share</button>
+            <button @click="click('showPassword')">showPassword</button>
+            <password-modal :show-modal.sync="showPassword" v-model="password"/>
+            <button @click="alert(false)">alert</button>
+            <button @click="alert(true)">alert no title</button>
+            <button @click="confirm(false)">confirm</button>
+            <button @click="confirm(true)">confirm no title</button>
+            <button @click="loading('加载中')">loading 加载中.</button>
+            <button @click="loading()">loading</button>
+            <button @click="toast('toast提示语')">toast</button>
+            <button @click="keyboard('password',true)">password-nine</button>
+            <button @click="keyboard('password')">password</button>
+            <button @click="keyboard('number',true)">number-nine</button>
+            <button @click="keyboard('number')">number</button>
+            <button @click="keyboard('idCard',true)">idCard-nine</button>
+            <button @click="keyboard('idCard')">idCard</button>
+            <button @click="keyboard('complex')">complex</button>
+        </div>
     </div>
 </template>
 <script type="text/babel">
     import { $keyboard } from '../../plugin/common/component/keyboard'
     import password, { passwordModal } from '../../plugin/common/component/password'
-    import { $msgBox }from '../../plugin/common/component/msgBox'
+    import { $dialog }from '../../plugin/common/component/msgBox'
     import $log from '../../plugin/common/service/log'
     import { $shareBox } from '../../plugin/common/component/shareBox'
+    import yqbHead from '../../plugin/common/component/yqbHeader'
     export default {
         name      : 'index',
         components: {
             password,
-            passwordModal
+            passwordModal,
+            yqbHead
         },
         props     : {},
-        data      : () => {
-
+        data (){
             return {
+                options     : {
+                    title: {
+                        value: 'vue 组件文档'
+                    }
+                },
                 title       : '',
                 content     : '这里是内容....',
                 btns        : [
@@ -49,9 +61,6 @@
                 showPassword: false
             }
         },
-        mounted(){
-//            this.$refs.pwdModal.showModal = true;
-        },
         methods   : {
             click(key){
                 this[key] = !this[key];
@@ -62,18 +71,24 @@
                 });
             },
             alert(noTitle){
-                $msgBox.alert({
+                $dialog.alert({
                     title  : noTitle ? '' : 'alert',
                     content: '删除消息成功',
                     click  : $log.debug
                 })
             },
             confirm(noTitle){
-                $msgBox.confirm({
+                $dialog.confirm({
                     title  : noTitle ? '' : 'confirm',
                     content: '确认要删除当前消息?',
                     click  : $log.debug
                 })
+            },
+            loading(text){
+                $dialog.spinner(text);
+            },
+            toast(text){
+                $dialog.toast(text || 'toast提示...', $log.debug)
             },
             keyboard(key, isNine){
                 $keyboard[key](!!isNine, $log.debug);

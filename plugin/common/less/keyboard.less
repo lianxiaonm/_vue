@@ -22,12 +22,18 @@
         .px2rem(height, 44); .px2rem(line-height, 44); .px2rem(font-size, 36);
         box-sizing: content-box; -webkit-box-sizing: content-box;
         &.key-hide { text-indent: -999rem; background: url(../images/key-hide.png) no-repeat center/33%; }
-        &.key-back { text-indent: -999rem; background: url(../images/key-back.png) no-repeat center/36%; }
+        &.key-back {
+            text-indent: -999rem; background-repeat: no-repeat;
+            background-size: 36%; background-position: center;
+        }
         &.key-ent { background: #49A6FF; color: #FFF;
             &:active { background: rgba(73, 166, 255, 0.7) }
         }
         &.key-dis { text-indent: -999rem; background: #D8D8D8; }
         &:active { background-color: #D8D8D8 }
+    }
+    ul.col li.key-back, [class*=line_] > li.key-back {
+        background-image: url(../images/key-back.png);
     }
     &.keyAll ul.number { width: 100%;
         li:nth-of-type(3n):before {
@@ -60,10 +66,9 @@
             -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .4); box-shadow: 0 1px 0 rgba(0, 0, 0, .4);
             &[class*=key-] {
                 background-color: #B7BDC6; background-repeat: no-repeat;
-                background-size: 44%; background-position: center;
+                background-size: 46%; background-position: center;
             }
             &:active { transform: scale(.9); -webkit-transform: scale(.9); }
-            &.key-back { background-image: url(../images/key-back.png); }
         }
         
     }

@@ -72,21 +72,23 @@
 
 /*loading*/
 .loading-container {
-    .px2rem(font-size, 28); .px2rem(padding, 30); .px2rem(border-radius, 10);
-    z-index: 9994; background-color: rgba(0, 0, 0, 0.7); text-align: center; color: #FFF;
+    .px2rem(font-size, 28); .px2auto-multi(padding, 25, 25); .px2rem(border-radius, 10);
+    z-index: 9994; background-color: rgba(0, 0, 0, 0.6); text-align: center; color: #FFF;
     -webkit-transition: all .3s; transition: all .3s; text-overflow: ellipsis;
     [class*='spinner-'] { fill: #FFF; stroke: #FFF; }
-    .circular { animation: loading-rotate 2s linear infinite; }
+    .spinner-circular { animation: loading-rotate 1.8s linear infinite; }
     .path {
         animation: loading-dash 1.5s ease-in-out infinite;
         stroke-dasharray: 90, 150;
         stroke-dashoffset: 0;
-        stroke-width: 2;
-        stroke: #20A0FF;
+        stroke-width: 2.2;
+        stroke: rgba(255, 255, 255, 0.9);
         stroke-linecap: round
     }
-    .toast {
+    p {
+        .px2auto-multi(padding, 0, 12);
         > .icon-font { font-size: .41rem; .px2rem(margin-right, 12); }
+        &.loading-txt { .px2rem(font-size, 26); }
     }
 }
 
@@ -113,7 +115,7 @@
             }
         }
         .popup-body {
-            .px2auto-multi(padding, 36, 24); font-size: .9em; overflow-y: auto; overflow-x: hidden;
+            .px2auto-multi(padding, 48, 24); font-size: .95em; overflow-y: auto; overflow-x: hidden;
         }
         .popup-btns {
             display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-direction: normal; -webkit-box-orient: horizontal; -webkit-flex-direction: row; flex-direction: row;
@@ -131,7 +133,7 @@
 
 //定制的popUp
 .popup-body .made-body {
-    .px2auto-multi(margin, -30, -24, -28); color: #333;
+    .px2auto-multi(margin, -42, -24, -40); color: #333;
     .made-title {
         .px2rem(font-size, 32); .px2rem(padding, 20); position: relative;
         em { position: absolute; .px2rem(line-height, 44); .px2rem(left, 20); color: #999; .px2rem(font-size, 54) }
@@ -146,22 +148,11 @@
 }
 
 @keyframes loading-rotate {
-    to {
-        transform: rotate(1turn)
-    }
+    to { transform: rotate(1turn) }
 }
 
 @keyframes loading-dash {
-    0% {
-        stroke-dasharray: 1, 200;
-        stroke-dashoffset: 0
-    }
-    50% {
-        stroke-dasharray: 90, 150;
-        stroke-dashoffset: -40px
-    }
-    to {
-        stroke-dasharray: 90, 150;
-        stroke-dashoffset: -120px
-    }
+    0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0 }
+    50% { stroke-dasharray: 90, 150; stroke-dashoffset: -40px }
+    to { stroke-dasharray: 90, 150; stroke-dashoffset: -120px }
 }

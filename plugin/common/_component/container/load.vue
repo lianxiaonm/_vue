@@ -8,6 +8,18 @@
     import '../../less/ionic.less'
     import container from '../mixins/container'
     export default {
-        mixins: [container]
+        mixins: [container],
+        props : {
+            delay: {
+                type   : Number,
+                default: 5000
+            }
+        },
+        mounted(){
+
+        },
+        watch : {
+
+        }
     }
 </script>
