@@ -30,7 +30,7 @@ input[type=search] {
         position: absolute; left: 0; color: #999;
         -webkit-transition: all .3s; transition: all .3s;
         .px2auto-multi(padding, 0, 30);
-        .px2rem(top, 15);
+        .px2rem(top, 18);
         .px2rem(max-width, 190);
         .px2rem(font-size, 26);
         .px2rem(line-height, 60);
@@ -49,7 +49,7 @@ input[type=search] {
         &:active { opacity: .7 }
     }
     .clear, .r_btn {
-        .px2rem(top, 15);
+        .px2rem(top, 18);
         .px2rem(right, 25);
         .px2rem(height, 60);
         .px2rem(line-height, 60);
@@ -75,7 +75,7 @@ input[type=search] {
     .err-tip {
         display: none;
         .px2rem(font-size, 22);
-        .px2auto-multi(padding, 5, 60, 5, 30);
+        .px2auto-multi(padding, 10, 60, 0, 30);
         .px2rem(margin-top, -35);
     }
     &.small {
@@ -85,7 +85,7 @@ input[type=search] {
     }
     &.error {
         &:before { border-color: #F00 }
-        .err-tip { display: block; color: #F00; text-align: left; pointer-events: none; }
+        .err-tip { display: inline-block; color: #F00; text-align: left; pointer-events: none; }
     }
     input {
         display: block; width: 100%;
