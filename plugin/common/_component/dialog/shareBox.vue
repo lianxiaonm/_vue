@@ -14,9 +14,9 @@
     </modal>
 </template>
 <script type="text/babel">
-    import '../less/shareBox.less'
-    import _modal from './mixins/modal'
-    import { extend, buildUrl } from '../service/common'
+    import '../../less/shareBox.less'
+    import _modal from '../mixins/modal'
+    import { extend, buildUrl } from '../../service/common'
     export default {
         mixins : [_modal],
         props  : {

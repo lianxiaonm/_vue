@@ -3,6 +3,6 @@
  */
 
 exports.default = {
-    path: '/',
+    path     : '/',
     component: resolve => require(['../page/index.vue'], resolve)
 }

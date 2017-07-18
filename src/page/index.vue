@@ -1,43 +1,38 @@
 <template>
-    <div>
-        <yqbHead :options="options"/>
-        <div class="page-body">
-            <password v-model="password"/>
-            <p>{{password}}</p>
-            <button @click="share()">share</button>
-            <button @click="click('showPassword')">showPassword</button>
-            <password-modal :show-modal.sync="showPassword" v-model="password"/>
-            <button @click="alert(false)">alert</button>
-            <button @click="alert(true)">alert no title</button>
-            <button @click="confirm(false)">confirm</button>
-            <button @click="confirm(true)">confirm no title</button>
-            <button @click="loading('加载中')">loading 加载中.</button>
-            <button @click="loading()">loading</button>
-            <button @click="toast('删除完成')">toast</button>
-            <button @click="actionSheet()">actionSheet</button>
-            <button @tap="keyboard('password',true)">password-nine</button>
-            <button @tap="keyboard('password')">password</button>
-            <button @tap="keyboard('number',true)">number-nine</button>
-            <button @tap="keyboard('number')">number</button>
-            <button @tap="keyboard('idCard',true)">idCard-nine</button>
-            <button @tap="keyboard('idCard')">idCard</button>
-            <button @tap="keyboard('complex')">complex</button>
-        </div>
-    </div>
+    <page :options="options">
+        <password v-model="password"/>
+        <p>{{password}}</p>
+        <button @click="share()">share</button>
+        <button @click="click('showPassword')">showPassword</button>
+        <password-modal :show-modal.sync="showPassword" v-model="password"/>
+        <button @click="alert(false)">alert</button>
+        <button @click="alert(true)">alert no title</button>
+        <button @click="confirm(false)">confirm</button>
+        <button @click="confirm(true)">confirm no title</button>
+        <button @click="loading('加载中')">loading 加载中.</button>
+        <button @click="loading()">loading</button>
+        <button @click="toast('删除完成')">toast</button>
+        <button @click="actionSheet()">actionSheet</button>
+        <button @tap="keyboard('password',true)">password-nine</button>
+        <button @tap="keyboard('password')">password</button>
+        <button @tap="keyboard('number',true)">number-nine</button>
+        <button @tap="keyboard('number')">number</button>
+        <button @tap="keyboard('idCard',true)">idCard-nine</button>
+        <button @tap="keyboard('idCard')">idCard</button>
+        <button @tap="keyboard('complex')">complex</button>
+    </page>
 </template>
 <script type="text/babel">
+    import page from '../../plugin/common/component/page'
     import { $keyboard } from '../../plugin/common/component/keyboard'
     import password, { passwordModal } from '../../plugin/common/component/password'
-    import { $dialog }from '../../plugin/common/component/msgBox'
+    import { $dialog }from '../../plugin/common/component/dialog'
     import $log from '../../plugin/common/service/log'
-    import { $shareBox } from '../../plugin/common/component/shareBox'
-    import yqbHead from '../../plugin/common/component/yqbHeader'
     export default {
-        name      : 'index',
         components: {
+            page,
             password,
             passwordModal,
-            yqbHead
         },
         props     : {},
         data (){
@@ -67,7 +62,7 @@
                 this[key] = !this[key];
             },
             share(){
-                $shareBox.show({
+                $dialog.share({
                     click: $log.debug
                 });
             },
@@ -98,9 +93,6 @@
                 $dialog.actionSheet(['拍照', '相册'], $log.debug)
             },
             log: $log.debug,
-            shareClick(){
-                this.showShare = false;
-            }
         }
     }
 </script>
