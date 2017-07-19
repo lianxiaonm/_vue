@@ -6,6 +6,7 @@
                    :type="i.type"
                    :key="idx"
                    :name="i.name"
+                   :class="i.className"
                    v-model="i.value"
                    :click="i.click ? i.click.bind(i,i) : null"
                    :label="i.label"
