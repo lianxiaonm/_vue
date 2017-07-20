@@ -21,6 +21,7 @@
                     {url: 'icon', text: 'icon图标'},
                     {url: 'dialog', text: 'dialog'},
                     {url: 'keyboard', text: '虚拟键盘'},
+                    {url: 'form', text: 'form表单'},
                 ]
             }
         },

@@ -8,11 +8,11 @@
         <h3 class="head-title"
             :class="tabState"
             @click="_click" v-html="title.value || '默认标题'"/>
-        <div className="head-right">
+        <div class="head-right">
             <i v-for="r in right"
                :style="r.bgStyleTmpl"
                :class="{'icon':r.isOnlyImage}"
-               @click="r.onClickHandler">{{r.OnlyTitle ? r.textValue : ''}}</i>
+               @click="r.onClickHandler">{{r.isOnlyTitle ? r.textValue : ''}}</i>
         </div>
     </header>
 </template>

@@ -1,9 +1,8 @@
 <template>
     <div>
         <v-head :options="options"/>
-        <scroll>
-            <slot/>
-        </scroll>
+        <scroll><slot/></scroll>
+        <slot name="outer"/>
     </div>
 </template>
 <script type="text/babel">

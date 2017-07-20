@@ -1,30 +1,30 @@
 <template>
     <page :options="options">
-        <Form :submit="submit">
-            <Input v-for="(i,idx) in inputs"
-                   :readonly="i.readonly"
-                   :type="i.type"
-                   :key="idx"
-                   :name="i.name"
-                   :class="i.className"
-                   v-model="i.value"
-                   :click="i.click ? i.click.bind(i,i) : null"
-                   :label="i.label"
-                   :validate="i.validate"
-                   :require="i.require"
-                   :placeholder="i.placeholder"/>
-        </Form>
+        <v-form :submit="submit">
+            <v-input v-for="(i,idx) in inputs"
+                     :readonly="i.readonly"
+                     :type="i.type"
+                     :key="idx"
+                     :name="i.name"
+                     :class="i.className"
+                     v-model="i.value"
+                     :click="i.click ? i.click.bind(i,i) : null"
+                     :label="i.label"
+                     :validate="i.validate"
+                     :require="i.require"
+                     :placeholder="i.placeholder"/>
+        </v-form>
     </page>
 </template>
 <script type="text/babel">
     import page from '../../plugin/common/component/page'
     import { $keyboard } from '../../plugin/common/component/keyboard'
-    import { Input, Form } from '../../plugin/common/component/form'
+    import { vInput, vForm } from '../../plugin/common/component/form'
     export default {
         components: {
             page,
-            Input,
-            Form
+            vInput,
+            vForm
         },
         data (){
             return {

@@ -1,6 +1,6 @@
 <template>
     <div class="form-input"
-         :class="{'error':error,'on':isOn,'focus':isFocus}">
+         :class="{'error':error,'on':isOn,'focus':isFocus,'small':($slots.default || []).length}">
         <label v-if="label">{{label}}</label>
         <input autocomplete="off"
                spellcheck="false"
@@ -27,9 +27,7 @@
 
     export default {
         props  : {
-            label      : {
-                default: ''
-            },
+            label      : {},
             type       : {
                 default: 'text'
             },
