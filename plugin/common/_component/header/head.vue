@@ -1,5 +1,5 @@
 <template>
-    <header class="yqb-header" v-if="useH5Header">
+    <header class="vx-header" v-if="useH5Header">
         <div class="head-left">
             <i class="icon-font"
                v-if="left.show"
@@ -7,7 +7,7 @@
         </div>
         <h3 class="head-title"
             :class="tabState"
-            @click="_click" v-html="title.value || '壹钱包'"/>
+            @click="_click" v-html="title.value || '默认标题'"/>
         <div className="head-right">
             <i v-for="r in right"
                :style="r.bgStyleTmpl"

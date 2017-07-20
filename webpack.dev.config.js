@@ -8,7 +8,9 @@ const node_modules = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
     entry  : {
-        vendor: ['vue', 'vue-router'],//框架核心模块
+        vendor: [
+            './plugin/common/common.js'
+        ],//框架核心模块
         app   : ['./src/index.js'],//业务代码
         plugin: [//第三方代码
             './plugin/mui-gesture.js',
@@ -59,9 +61,7 @@ module.exports = {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name    : 'vendor',
-            filename: 'vendor.js',
-            chunks  : ['vendor', 'app']
+            name: ['vendor', 'manifest']
         }),
         new ExtractTxtPlugin("[name].css", {
             allChunks: true

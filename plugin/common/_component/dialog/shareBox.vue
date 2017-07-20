@@ -2,7 +2,7 @@
     <modal v-model="showModal">
         <div class="share-box" :class="screen">
             <div class="share-banner"/>
-            <p class="share-text" v-html="text"/>
+            <p class="share-text" v-html="text || '默认的分享title'"/>
             <ul class="m-row share-icon">
                 <li class="col-3"
                     v-for="item in items"
@@ -23,14 +23,12 @@
             screen : {
                 type: String
             },
-            text   : {
-                default: '壹钱包，为每一分钱创造价值'
-            },
+            text   : {},
             options: {}
         },
         data(){
             this._options = this.merge(this.options);
-            let baseUrl   = 'ewap://1qianbao/share';
+            let baseUrl   = 'ewap://share.com/share';
             return {
                 items: [
                     {
