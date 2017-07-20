@@ -28,7 +28,7 @@
                     {text: 'toast提示', click: this.toast.bind(this, 'toast提示')},
                     {text: 'actionSheet1', click: this.actionSheet.bind(this, ['拍照或录像', '选取现有的'], $log.debug)},
                     {text: 'actionSheet2', click: this.actionSheet.bind(this, ['回复', '转发', '打印'], $log.debug)},
-                    {text: 'shareBox', click: this.share.bind(this, {text: '壹钱包，测试的title'})},
+                    {text: 'shareBox', click: this.share.bind(this, {text: '测试的title'})},
                     {text: 'shareBox1', click: this.share.bind(this, {text: ''})}
                 ]
             }
