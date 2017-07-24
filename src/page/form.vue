@@ -14,17 +14,20 @@
                      :placeholder="i.placeholder">
             </v-input>
         </v-form>
+        <v-otp :readonly="true" :phone="'18964367337'"/>
     </page>
 </template>
 <script type="text/babel">
     import page from '../../plugin/common/component/page'
     import { vInput, vForm } from '../../plugin/common/component/form'
+    import { vOtp } from '../../plugin/common/component/otp'
     import $log from '../../plugin/common/service/log'
     export default {
         components: {
             page,
             vInput,
-            vForm
+            vForm,
+            vOtp
         },
         data(){
             return {

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import vInput from '../_component/form/input.vue'
 import vForm from '../_component/form/form.vue'
 const components = [
