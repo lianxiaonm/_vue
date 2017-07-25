@@ -35,12 +35,7 @@
                     title: {
                         value: 'form表单'
                     },
-                    right: [
-                        {
-                            type     : "OnlyTitle",
-                            textValue: '提交'
-                        }
-                    ]
+                    right: []
                 },
                 inputs : [
                     {

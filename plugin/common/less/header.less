@@ -28,6 +28,18 @@
         .px2rem(line-height, 100); font-weight: normal;
         text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
         .px2auto-multi(padding, 0, 160); text-align: center;
+        &.close, &.open {
+            &:after {
+                font-family: iconfont;
+                content: '\e661';
+                -webkit-transform: scale(.85); transform: scale(.85);
+                display: inline-block;
+                -webkit-transition: transform .2s; transition: transform .2s;
+            }
+        }
+        &.open:after {
+            -webkit-transform: scale(.85) rotateX(180deg); transform: scale(.85) rotateX(180deg);
+        }
     }
     + .page-body { .px2rem(padding-top, 99) }
     + .scroll-wrapper { .px2rem(top, 99); }

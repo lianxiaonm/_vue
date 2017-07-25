@@ -16,14 +16,23 @@
             return {
                 options: {
                     title: {
-                        value: 'vue 组件文档'
-                    }
+                        value: 'vue 组件文档',
+                        type : 'TitleWithTab'
+                    },
+                    right: [
+                        {
+                            type          : "OnlyTitle",
+                            textValue     : '提交',
+                            onClickHandler: $log.debug
+                        }
+                    ]
                 },
                 docList: [
                     {url: 'icon', text: 'icon图标'},
                     {url: 'dialog', text: 'dialog'},
                     {url: 'keyboard', text: '虚拟键盘'},
                     {url: 'form', text: 'form表单'},
+                    {url: 'password', text: '密码组件'},
                 ]
             }
         },

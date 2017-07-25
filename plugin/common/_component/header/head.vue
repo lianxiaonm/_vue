@@ -54,33 +54,40 @@
         }
     }
 
-    let defaultOption = {
+    const defaultOption = {
         title               : {
             type          : "TitleNormal",
             value         : isBrowser ? document.title : '',
             onOpenHandler : valueFn(true),
             onCloseHandler: valueFn(true)
-        }, right            : [], left: {
+        },
+        right               : [],
+        left                : {
             goBackHandler: function () {
                 history.back();
-            }, isShow    : true, hideClose: false
-        }, dropToRefresh    : {},
-        mandatoryUseH5Header: true, hideH5Header: false
+            },
+            isShow       : true,
+            hideClose    : false
+        },
+        dropToRefresh       : {},
+        mandatoryUseH5Header: true,
+        hideH5Header        : false
     };
-    function updateOption(option) {
-        option   = extend({}, defaultOption, option || {});
-        // 配置左侧按钮
-        var left = option.left;
+    function updateOption(_opts = {}) {
+        let left                 = Object.assign({}, defaultOption.left, _opts.left),            // 配置左侧按钮
+            title                = Object.assign({}, defaultOption.title, _opts.title),
+            right                = Object.assign([], defaultOption.right, _opts.right),
+            mandatoryUseH5Header = _opts.mandatoryUseH5Header || defaultOption.mandatoryUseH5Header;
+
         if (left.isShow === false || left.isShow === 'hide') {
             left.show = left.closeShow = !1, left.isShow = 'hide';
         } else {
             left.show = !0, left.isShow = 'show';
         }
         // 配置中间 title 部分
-        if (isBrowser) document.title = option.title.value;
+        if (isBrowser) document.title = title.value;
         //配置右侧按钮
-        var rights                         = option.right.slice(0, 2);
-        option.right                       = rights.map(function (rb) {
+        right = right.slice(0, 2).map(function (rb) {
             if (rb.type == 'OnlyImage') {
                 rb.isOnlyImage = true;
                 rb.imageURL && (rb.bgStyleTmpl = 'background-image:url(\"' + rb.imageURL + '\");');
@@ -91,7 +98,14 @@
                 rb.onClickHandler = valueFn(true);
             return rb;
         });
-        option.dropToRefresh.dropToRefresh = 'disable';
-        return option;
+        return {
+            left,
+            title,
+            right,
+            mandatoryUseH5Header,
+            dropToRefresh: {
+                dropToRefresh: 'disable'
+            }
+        }
     }
 </script>
