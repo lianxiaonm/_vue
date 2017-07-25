@@ -1,6 +1,8 @@
 <template>
     <page :options="options">
-        <button v-for="doc in docList" v-html="doc.text" @click="click(doc.url)"/>
+        <ul class="item-view">
+            <li class="item-list" v-for="doc in docList" v-html="doc.text" @click="click(doc.url)"/>
+        </ul>
     </page>
 </template>
 <script type="text/babel">

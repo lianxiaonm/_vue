@@ -31,7 +31,7 @@ export default {
                     if (!name) return $log.error('input must have [name] attribute');
                     props.validate    = self.validate.bind(this, vdFn, name);
                     self.vStore[name] = props.value || '';
-                    self.vMap[name]   = !!vdFn(props.value || '').flag;
+                    props.validate(props.value || '');
                 } else props.value = vStore[name];
             });
             this.vMapEach(true);

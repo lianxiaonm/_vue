@@ -6,26 +6,25 @@
 </template>
 <script type="text/babel">
     import Vue from 'vue'
-    import { isFunction } from '../../service/common'
     import formMixins from '../mixins/form'
     import $log from '../../service/log'
 
     export default {
-        mixins : [formMixins],
-        props  : {
+        mixins: [formMixins],
+        props : {
             btnText: {
                 default: '确定'
             },
             submit : {
-                type: Function
+                type   : Function,
+                default: () => {}
             }
         },
 
         methods: {
             _submit(event) {
                 event.stopPropagation();
-                let submit = this.submit;
-                isFunction(submit) && submit(this.vStore);
+                this.submit(Object.assign({}, this.vStore));
             }
         }
     }

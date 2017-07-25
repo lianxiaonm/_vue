@@ -14,7 +14,7 @@
                      :placeholder="i.placeholder">
             </v-input>
         </v-form>
-        <v-otp :readonly="true" :phone="'18964367337'"/>
+        <v-otp :readonly="true" :phone="'18964367337'" :submit="submit"/>
     </page>
 </template>
 <script type="text/babel">

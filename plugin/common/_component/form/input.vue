@@ -12,7 +12,6 @@
                @focus="focusBlur"
                @blur="focusBlur"
                @tap="click"
-               ref="$input"
                @input="input"/>
         <i v-if="!readonly" class="icon-font clear" @tap="clear"/>
         <small class="err-tip" v-html="error"/>
