@@ -8,7 +8,8 @@ const routes = [
     require('../routers/dialogRouter').default,
     require('../routers/iconRouter').default,
     require('../routers/keyboardRouter').default,
-    require('../routers/formRouter').default
+    require('../routers/formRouter').default,
+    require('../routers/passwordRouter').default
 ]
 
 export default new VueRouter({

@@ -16,8 +16,14 @@
             return {
                 options: {
                     title: {
-                        value: 'vue 组件文档',
-                        type : 'TitleWithTab'
+                        value         : 'vue 组件文档',
+                        type          : 'TitleWithTab',
+                        onOpenHandler : () => {
+                            return $log.debug('open'), true
+                        },
+                        onCloseHandler: () => {
+                            return $log.debug('close'), true
+                        }
                     },
                     right: [
                         {
@@ -36,10 +42,15 @@
                 ]
             }
         },
+        mounted(){
+            setTimeout(() => {
+                this.options.title.value = '更换新的标题'
+            }, 5000);
+        },
         methods   : {
             click(url){
                 this.$router.push(url);
-            },
+            }
         }
     }
 </script>

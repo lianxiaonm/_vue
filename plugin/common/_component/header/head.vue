@@ -18,7 +18,7 @@
 </template>
 <script type="text/babel">
     import '../../less/header.less';
-    import { valueFn, extend, isBrowser } from '../../service/common'
+    import { valueFn, isBrowser } from '../../service/common'
     export default {
         props  : {
             options: {
@@ -39,16 +39,17 @@
                 handler(val){
                     let {left, title, right, mandatoryUseH5Header} = updateOption(val);
                     this.left = left, this.title = title, this.right = right;
-                    this.tabState    = title.type == "TitleWithTab" ? 'close' : '';
+                    this.tabState    = title.type == "TitleWithTab" ? this.tabState || 'close' : '';
                     this.useH5Header = mandatoryUseH5Header;
                 }
             }
         },
         methods: {
             _click(){
-                var titleOp = this.title;
-                if (titleOp.type == "TitleWithTab" && titleOp.onOpenHandler()) {
-                    this.tabState = this.tabState == 'close' ? 'open' : 'close';
+                var {title, tabState} = this;
+                if (title.type == "TitleWithTab" && title[tabState == 'close' ?
+                        'onOpenHandler' : 'onCloseHandler']()) {
+                    this.tabState = tabState == 'close' ? 'open' : 'close';
                 }
             }
         }
