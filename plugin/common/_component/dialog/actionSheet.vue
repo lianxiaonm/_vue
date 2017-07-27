@@ -1,5 +1,5 @@
 <template>
-    <modal v-model="showModal">
+    <v-modal v-model="showModal">
         <div class="action-sheet">
             <ul class="item-view">
                 <li v-for="(btn,idx) in btnList"
@@ -11,7 +11,7 @@
                 <li class="item-list cancel" @click="_click(false)">取消</li>
             </ul>
         </div>
-    </modal>
+    </v-modal>
 </template>
 <script type="text/babel">
     import _modal from '../mixins/modal'

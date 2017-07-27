@@ -1,15 +1,15 @@
 /**
  * Created by h5 on 2017/7/7.
  */
-import modal from '../container/modal.vue'
-import pop from '../container/pop.vue'
-import load from '../container/load.vue'
+import vModal from '../container/modal.vue'
+import vPop from '../container/pop.vue'
+import vLoad from '../container/load.vue'
 
 export default {
     components: {
-        modal,
-        pop,
-        load
+        vModal,
+        vPop,
+        vLoad
     },
     props     : {
         showModal: {

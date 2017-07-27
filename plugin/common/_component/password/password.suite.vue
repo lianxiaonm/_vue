@@ -15,8 +15,9 @@
     import password from './password.vue'
     import vInput from '../form/input.vue'
     import passwordMixin from '../mixins/password';
+    import keyboardMixin from '../mixins/keyboard';
     export default {
-        mixins    : [passwordMixin],
+        mixins    : [passwordMixin, keyboardMixin],
         components: {
             password,
             vInput

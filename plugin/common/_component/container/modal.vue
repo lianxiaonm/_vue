@@ -6,7 +6,7 @@
     </div>
 </template>
 <script type="text/babel">
-    import '../../less/ionic.less'
+    import '../../less/dialog.less'
     import container from '../mixins/container'
     export default {
         mixins: [container],

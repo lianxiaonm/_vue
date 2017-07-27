@@ -1,5 +1,5 @@
 <template>
-    <page :options="options">
+    <v-page :options="options">
         <ul class="m-row font-page">
             <li class="col-4" v-for="icon in icons">
                 <i class="icon-font" :class="icon.className"/>
@@ -7,13 +7,14 @@
                 编码:{{getCode(icon.keyCode)}}
             </li>
         </ul>
-    </page>
+    </v-page>
 </template>
 <script type="text/babel">
-    import page from '../../plugin/common/component/page'
+    import { vPage } from '../../plugin/common/component/page'
+
     export default {
         components: {
-            page
+            vPage
         },
         methods   : {
             getCode(code){

@@ -1,23 +1,23 @@
 import Vue from 'vue'
 
-import pop from '../_component/container/pop.vue'
-import modal from '../_component/container/modal.vue'
-import load from '../_component/container/load.vue'
+import vPop from '../_component/container/pop.vue'
+import vModal from '../_component/container/modal.vue'
+import vLoad from '../_component/container/load.vue'
 
 import { createElement, $body, sliceArgs, extend } from '../service/common'
 
 const components = [
-    modal,
-    pop,
-    load
+    vPop,
+    vModal,
+    vLoad
 ]
 components.forEach(component => {
     component.install = Vue => Vue.component(component.name, component);
 })
 export {
-    modal,
-    pop,
-    load
+    vPop,
+    vModal,
+    vLoad
 }
 export const $modal = {
     _el       : null,

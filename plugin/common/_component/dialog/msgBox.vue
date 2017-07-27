@@ -1,5 +1,5 @@
 <template>
-    <pop v-model="showModal">
+    <v-pop v-model="showModal">
         <div class="popup">
             <div class="popup-head" v-if="title">
                 <h3 class="popup-title" v-html="title"/>
@@ -15,10 +15,9 @@
                   @click="close(i)">{{b.text}}</span>
             </div>
         </div>
-    </pop>
+    </v-pop>
 </template>
 <script type="text/babel">
-    import pop from '../container/pop.vue'
     import _modal from '../mixins/modal'
     export default {
         mixins : [_modal],

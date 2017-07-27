@@ -3,7 +3,7 @@ import msgBox from '../_component/dialog/msgBox.vue'
 import loading from '../_component/dialog/loading.vue'
 import actionSheet from '../_component/dialog/actionSheet.vue'
 import shareBox from '../_component/dialog/shareBox.vue'
-import { $pop, $load, $modal } from './ionic-lite'
+import { $pop, $load, $modal } from './container'
 import { valueFn } from '../service/common'
 
 const components = [

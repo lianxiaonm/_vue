@@ -1,15 +1,15 @@
 <template>
-    <page :options="options">
+    <v-page :options="options">
         <button v-for="btn in btnList" @tap="btn.click" v-html="btn.text"/>
-    </page>
+    </v-page>
 </template>
 <script type="text/babel">
-    import page from '../../plugin/common/component/page'
+    import { vPage } from '../../plugin/common/component/page'
     import { $dialog } from '../../plugin/common/component/dialog'
     import $log from '../../plugin/common/service/log'
     export default {
         components: {
-            page
+            vPage
         },
         data (){
             return {

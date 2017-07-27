@@ -1,5 +1,5 @@
 <template>
-    <page :options="options">
+    <v-page :options="options">
         <v-form :submit="submit">
             <v-input v-for="(i,idx) in inputs"
                      :readonly="i.readonly"
@@ -15,16 +15,16 @@
             </v-input>
         </v-form>
         <v-otp :readonly="true" :phone="'18964367337'" :submit="submit"/>
-    </page>
+    </v-page>
 </template>
 <script type="text/babel">
-    import page from '../../plugin/common/component/page'
+    import { vPage } from '../../plugin/common/component/page'
     import { vInput, vForm } from '../../plugin/common/component/form'
     import { vOtp } from '../../plugin/common/component/otp'
     import $log from '../../plugin/common/service/log'
     export default {
         components: {
-            page,
+            vPage,
             vInput,
             vForm,
             vOtp

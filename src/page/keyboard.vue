@@ -1,5 +1,5 @@
 <template>
-    <page :options="options">
+    <v-page :options="options">
         <v-form :submit="submit">
             <v-input v-for="(i,idx) in inputs"
                      :readonly="i.readonly"
@@ -14,15 +14,15 @@
                      :require="i.require"
                      :placeholder="i.placeholder"/>
         </v-form>
-    </page>
+    </v-page>
 </template>
 <script type="text/babel">
-    import page from '../../plugin/common/component/page'
+    import { vPage } from '../../plugin/common/component/page'
     import { $keyboard } from '../../plugin/common/component/keyboard'
     import { vInput, vForm } from '../../plugin/common/component/form'
     export default {
         components: {
-            page,
+            vPage,
             vInput,
             vForm
         },

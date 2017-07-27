@@ -4,7 +4,7 @@ import datePicker from '../_component/picker/datePicker.vue'
 import linkagePicker from '../_component/picker/linkagePicker.vue'
 import modalPicker from '../_component/picker/modalPicker.vue'
 
-import { $modal } from './ionic-lite'
+import { $modal } from './container'
 
 const components = [
     picker,

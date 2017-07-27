@@ -1,16 +1,16 @@
 <template>
-    <page :options="options">
+    <v-page :options="options">
         <ul class="item-view">
             <li class="item-list" v-for="doc in docList" v-html="doc.text" @click="click(doc.url)"/>
         </ul>
-    </page>
+    </v-page>
 </template>
 <script type="text/babel">
-    import page from '../../plugin/common/component/page'
+    import { vPage } from '../../plugin/common/component/page'
     import $log from '../../plugin/common/service/log'
     export default {
         components: {
-            page
+            vPage
         },
         data (){
             return {

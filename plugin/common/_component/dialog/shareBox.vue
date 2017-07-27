@@ -1,5 +1,5 @@
 <template>
-    <modal v-model="showModal">
+    <v-modal v-model="showModal">
         <div class="share-box" :class="screen">
             <div class="share-banner"/>
             <p class="share-text" v-html="text || '默认的分享title'"/>
@@ -11,7 +11,7 @@
                 </li>
             </ul>
         </div>
-    </modal>
+    </v-modal>
 </template>
 <script type="text/babel">
     import '../../less/shareBox.less'

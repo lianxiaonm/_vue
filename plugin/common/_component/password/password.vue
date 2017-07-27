@@ -6,9 +6,10 @@
 <script type="text/babel">
     import '../../less/simplePwd.less'
     import passwordMixin from '../mixins/password';
+    import keyboardMixin from '../mixins/keyboard';
     import { $keyboard } from "../../component/keyboard";
     export default {
-        mixins : [passwordMixin],
+        mixins : [passwordMixin, keyboardMixin],
         props  : {
             length: {
                 default: 6

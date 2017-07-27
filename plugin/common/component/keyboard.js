@@ -2,7 +2,7 @@ import Vue from 'vue'
 import keyboardModal from '../_component/keyboard/keyboard.modal.vue'
 import keyboardSimple from '../_component/keyboard/keyboard.simple.vue'
 import keyboardComplex from '../_component/keyboard/keyboard.complex.vue'
-import { $modal } from './ionic-lite'
+import { $modal } from './container'
 import { extend, noop } from '../service/common'
 
 const components = [
