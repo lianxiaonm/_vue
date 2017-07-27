@@ -1,7 +1,7 @@
 <template>
     <page :options="options">
-        <password-suite/>
-        <password-suite type="complex"/>
+        <password-suite v-model="pwd"/>
+        <password-suite type="complex" v-model="pwd"/>
         <password-suite has-change/>
         <password-suite has-change type="complex"/>
     </page>
@@ -22,6 +22,7 @@
                         value: '密码组件'
                     }
                 },
+                pwd    : ''
             }
         }
     }

@@ -45,11 +45,11 @@ module.exports = {
             },
             {
                 test  : /\.(jpg|png|gif)$/,
-                loader: 'url?limit=2000&name=/images/[name].[ext]'
+                loader: 'url?limit=4000&name=/images/[name].[ext]'
             },
             {
                 test  : /\.(svg|ttf|woff|eot)$/,
-                loader: 'url?limit=2000&name=/fonts/[name].[ext]'
+                loader: 'url?limit=4000&name=/fonts/[name].[ext]'
             }
         ]
     },

@@ -1,41 +1,46 @@
 //虚拟键盘的混合js
+import { $keyboard } from '../../component/keyboard'
 export default {
     props  : {
-        length: {
-            type   : Number,
-            default: 6
-        },
         value : {
-            type: String
+            default: ''
         },
         submit: {
             type: Function
         }
     },
-    data(){
-        return {
-            items : [],
-            inputs: []
-        }
-    },
-    mounted(){
-        this.inputs = (this.value || '').split('');
-    },
     methods: {
-        _close(char){
-            return char == '确定' || this.inputs.length >= this.length;
-        }
-    },
-    watch  : {
-        value(val){
-            this.inputs = (val || '').split('');
+        keyboard(type, isNine, maxLen){
+            $keyboard[type](isNine, char => this.input(char, maxLen));
         },
-        inputs(val){
-            var items = [], i = 0, ii = this.length;
-            for (; i < ii; i++) {
-                items.push(val[i] == null ? '&nbsp;' : '●')
+        input(char, maxLen){
+            let value = this.value.split('');
+            switch (char) {
+                case 'back':
+                    value.splice(-1);
+                    break;
+                case '确定':
+                    return $keyboard.hide();
+                case 'space':
+                    value.push(' ');
+                    break;
+                case '&amp;':
+                    value.push('&');
+                    break;
+                case '&lt;':
+                    value.push('<');
+                    break;
+                case '&gt;':
+                    value.push('>');
+                    break;
+                default:
+                    value.push(char);
             }
-            this.items = items, this.$emit('input', this.inputs.join(''))
+            if (maxLen != null) {
+                value.length >= maxLen && $keyboard.hide();
+                value.length > maxLen && value.splice(maxLen);
+            }
+            this.value = value.join('');
         }
     }
 }

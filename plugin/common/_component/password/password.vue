@@ -1,5 +1,5 @@
 <template>
-    <ul class="simple-pwd" @click="keyboard()">
+    <ul class="simple-pwd" @click="click">
         <li v-for="item in items" v-html="item"></li>
     </ul>
 </template>
@@ -9,22 +9,35 @@
     import { $keyboard } from "../../component/keyboard";
     export default {
         mixins : [passwordMixin],
+        props  : {
+            length: {
+                default: 6
+            },
+            click : {}
+        },
+        data(){
+            return {
+                items: []
+            }
+        },
+        mounted(){
+            this._mask(this.value);
+        },
+        watch  : {
+            value(val = ''){
+                this._mask(val);
+                this.$emit('input', val);
+            }
+        },
         methods: {
-            input(char){
-                if (char == 'back') {
-                    this.inputs.splice(-1);
-                } else if (this._close(char)) {
-                    return $keyboard.hide();
-                } else if (char != '*') {
-                    this.inputs.push(char);
-                    this._close(char) && $keyboard.hide();
+            _mask(val){
+                let inputs    = (val || '').split(''),
+                    i = 0, ii = this.length,
+                    items     = [];
+                for (; i < ii; i++) {
+                    items.push(inputs[i] == null ? '&nbsp;' : '●')
                 }
-            },
-            _close(char){
-                return char == '确定' || this.inputs.length >= this.length;
-            },
-            keyboard(){
-                $keyboard.password(true, char => this.input(char))
+                this.items = items;
             }
         }
     }

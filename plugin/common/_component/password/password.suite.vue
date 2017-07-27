@@ -2,8 +2,8 @@
     <div class="pwd-group" :class="[ _typeClass ]">
         <h4>请输入支付密码</h4>
         <slot/>
-        <password v-model="passwordVal"/>
-        <v-input label="支付密码" type="password" name="password" maxLength="16" v-model="passwordVal"/>
+        <password v-model="value" :click="_click"/>
+        <v-input label="支付密码" type="password" :readonly="true" v-model="value" :click="_click"/>
         <p class="corner">
             <a v-if="hasChange" @click="change" v-html="show=='simple'?'复杂密码':'简单密码'"/>
             <a v-if="_hasForget" @click="forget">忘记密码</a>
@@ -14,7 +14,9 @@
 <script type="text/babel">
     import password from './password.vue'
     import vInput from '../form/input.vue'
+    import passwordMixin from '../mixins/password';
     export default {
+        mixins    : [passwordMixin],
         components: {
             password,
             vInput
@@ -30,8 +32,7 @@
         },
         data(){
             return {
-                passwordVal: '',
-                show       : this.type == 'simple' ? 'simple' : 'complex'
+                show: this.type == 'simple' ? 'simple' : 'complex'
             }
         },
         computed  : {
@@ -46,15 +47,26 @@
             }
         },
         watch     : {
-            passwordVal(val){
+            value(val){
                 this.$refs.$btn.disabled = (val || '').length < 6;
+                this.$emit('input', val);
+            },
+            type(val){
+                this.show = val == 'simple' ? 'simple' : 'complex'
             }
         },
         methods   : {
             change(){
-                this.passwordVal = '';
-                this.show        = this.show == 'simple' ? 'complex' : 'simple';
-            }
+                this.value = '';
+                this.show  = this.checkType() ? 'complex' : 'simple';
+            },
+            checkType(){
+                return this.show == 'simple';
+            },
+            _click(){
+                this.show == 'simple' ? this.keyboard('password', true, 6) :
+                    this.keyboard('complex', true, 16);
+            },
         }
     }
 </script>
