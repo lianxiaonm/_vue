@@ -1,5 +1,5 @@
 <template>
-    <modal v-model="showModal">
+    <v-modal v-model="showModal">
         <div class="pop-picker">
             <div class="pop-picker-header">
                 <span class="btn btn-default" @click="_click(false)">取消</span>
@@ -8,7 +8,7 @@
             <date-picker v-if="type=='date'" :options="options" ref="_picker"/>
             <linkage-picker v-else :pk-list="options" :select="select" ref="_picker"/>
         </div>
-    </modal>
+    </v-modal>
 </template>
 <script type="text/babel">
     import _modal from '../mixins/modal'

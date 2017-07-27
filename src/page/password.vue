@@ -1,18 +1,18 @@
 <template>
     <v-page :options="options">
-        <password-suite v-model="pwd"/>
-        <password-suite type="complex" v-model="pwd"/>
-        <password-suite has-change/>
-        <password-suite has-change type="complex"/>
+        <v-password-suite v-model="pwd"/>
+        <v-password-suite type="complex" v-model="pwd"/>
+        <v-password-suite has-change/>
+        <v-password-suite has-change type="complex"/>
     </v-page>
 </template>
 <script type="text/babel">
     import { vPage } from '../../plugin/common/component/page'
-    import { passwordSuite } from '../../plugin/common/component/password'
+    import { vPasswordSuite } from '../../plugin/common/component/password'
     export default {
         components: {
             vPage,
-            passwordSuite
+            vPasswordSuite
         },
         data(){
             return {

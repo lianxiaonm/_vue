@@ -1,21 +1,21 @@
 <template>
-    <modal v-model="showModal">
-        <keyboard-simple v-if="type!='complex'"
-                         :keys="keys"
-                         :others="others"
-                         :click="click"/>
-        <keyboard-complex v-else :click="click"/>
-    </modal>
+    <v-modal v-model="showModal">
+        <v-keyboard-simple v-if="type!='complex'"
+                           :keys="keys"
+                           :others="others"
+                           :click="click"/>
+        <v-keyboard-complex v-else :click="click"/>
+    </v-modal>
 </template>
 <script type="text/babel">
-    import keyboardSimple from './keyboard.simple.vue'
-    import keyboardComplex from './keyboard.complex.vue'
+    import vKeyboardSimple from './keyboard.simple.vue'
+    import vKeyboardComplex from './keyboard.complex.vue'
     import _modal from '../mixins/modal'
     export default {
         mixins    : [_modal],
         components: {
-            keyboardSimple,
-            keyboardComplex
+            vKeyboardSimple,
+            vKeyboardComplex
         },
         props     : {
             type  : {

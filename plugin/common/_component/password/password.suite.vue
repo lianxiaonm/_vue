@@ -2,7 +2,7 @@
     <div class="pwd-group" :class="[ _typeClass ]">
         <h4>请输入支付密码</h4>
         <slot/>
-        <password v-model="value" :click="_click"/>
+        <v-password v-model="value" :click="_click"/>
         <v-input label="支付密码" type="password" :readonly="true" v-model="value" :click="_click"/>
         <p class="corner">
             <a v-if="hasChange" @click="change" v-html="show=='simple'?'复杂密码':'简单密码'"/>
@@ -12,14 +12,14 @@
     </div>
 </template>
 <script type="text/babel">
-    import password from './password.vue'
+    import vPassword from './password.vue'
     import vInput from '../form/input.vue'
     import passwordMixin from '../mixins/password';
     import keyboardMixin from '../mixins/keyboard';
     export default {
         mixins    : [passwordMixin, keyboardMixin],
         components: {
-            password,
+            vPassword,
             vInput
         },
         props     : {
