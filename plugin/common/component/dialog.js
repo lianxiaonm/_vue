@@ -1,33 +1,33 @@
 import Vue from 'vue'
-import msgBox from '../_component/dialog/msgBox.vue'
-import loading from '../_component/dialog/loading.vue'
-import actionSheet from '../_component/dialog/actionSheet.vue'
-import shareBox from '../_component/dialog/shareBox.vue'
+import vMsgBox from '../_component/dialog/msgBox.vue'
+import vLoading from '../_component/dialog/loading.vue'
+import vActionSheet from '../_component/dialog/actionSheet.vue'
+import vShareBox from '../_component/dialog/shareBox.vue'
 import { $pop, $load, $modal } from './container'
 import { valueFn } from '../service/common'
 
 const components = [
-    msgBox,
-    loading,
-    actionSheet,
-    shareBox
+    vMsgBox,
+    vLoading,
+    vActionSheet,
+    vShareBox
 ];
 components.forEach(component => {
     component.install = Vue => Vue.component(component.name, component);
 });
 
-export default msgBox
+export default vMsgBox;
 export {
-    msgBox,
-    loading,
-    actionSheet,
-    shareBox
+    vMsgBox,
+    vLoading,
+    vActionSheet,
+    vShareBox
 }
 
-const MsgBox      = Vue.extend(msgBox),
-      Loading     = Vue.extend(loading),
-      ActionSheet = Vue.extend(actionSheet),
-      ShareBox    = Vue.extend(shareBox);
+const MsgBox      = Vue.extend(vMsgBox),
+      Loading     = Vue.extend(vLoading),
+      ActionSheet = Vue.extend(vActionSheet),
+      ShareBox    = Vue.extend(vShareBox);
 
 let _msgBox, _loading, _actionSheet, _shareBox;
 export const $dialog = {
