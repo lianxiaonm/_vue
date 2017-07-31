@@ -82,7 +82,7 @@
                 count   : this.defaultCount,
                 send    : 0,
                 isNormal: true,
-                picSrc  : ''//https://cashier.1qianbao.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd'   //图片验证码地址
+                picSrc  : ''//https://cashier.xxxx.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd'   //图片验证码地址
             }
         },
         methods   : {
@@ -94,7 +94,7 @@
             },
             sendOtp(){
                 this.send || ++this.send && this.countDown();
-//                this.picSrc = 'https://cashier.1qianbao.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd';
+//                this.picSrc = 'https://cashier.xxxx.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd';
             },
             countDown(){
                 this.btnTxt = this.count <= 0 ? '重新获取' : this.count + 's';
@@ -103,7 +103,7 @@
                 );
             },
             refresh(){
-                this.picSrc = 'https://cashier.1qianbao.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd?t=' + new Date().getTime();
+                this.picSrc = 'https://cashier.xxxx.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd?t=' + new Date().getTime();
             }
         },
         watch     : {
