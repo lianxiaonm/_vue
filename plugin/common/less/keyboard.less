@@ -97,4 +97,22 @@
         }
     }
     
+    //密码弹层
+    .pwd-head {
+        .px2rem(line-height, 88);
+        text-align: center;
+        .px2rem(font-size, 32);
+        color: #333;
+        position: relative;
+        > em {
+            position: absolute;
+            .px2rem(width, 88);
+            text-align: center;
+            left: 0;
+        }
+    }
+    .pwd-group {
+        + h5 { .border-handle(1000, #CCC, solid) }
+    }
+    
 }

@@ -2,11 +2,12 @@ import { $keyboard } from '../../component/keyboard'
 
 export default {
     methods: {
-        keyboard(type, isNine, maxLen){
-            $keyboard[type](isNine, char => this.input(this, char, maxLen));
+        keyboard(type, isNine, maxLen, that){
+            $keyboard[type](isNine, char => this.input(that || this, char, maxLen));
         },
         input(that, char, maxLen){
             let value = (that.value || '').split('');
+            console.log(char);
             switch (char) {
                 case 'back':
                     value.splice(-1);

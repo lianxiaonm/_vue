@@ -18,9 +18,12 @@
 </template>
 <script type="text/babel">
     import { vPage } from '../../plugin/common/component/page'
+    import keyboardMixins from '../../plugin/common/_component/mixins/keyboard'
     import { $keyboard } from '../../plugin/common/component/keyboard'
     import { vInput, vForm } from '../../plugin/common/component/form'
+
     export default {
+        mixins    : [keyboardMixins],
         components: {
             vPage,
             vInput,
@@ -41,12 +44,12 @@
                     {
                         label   : '密码', placeholder: '全键盘', value: '',
                         readonly: true, type: 'password', name: 'password', require: true,
-                        click   : that => $keyboard.complex(true, char => this.input(that, char))
+                        click   : that => this.keyboard('complex', true, null, that)
                     },
                     {
                         label   : '手机号', placeholder: '数字键盘9', value: '',
                         readonly: true, type: 'text', name: 'count', require: true,
-                        click   : that => $keyboard.number(true, char => this.input(that, char))
+                        click   : that => this.keyboard('number', true, null, that)
                     }
                 ]
             }
@@ -55,25 +58,10 @@
             this.inputs.push({
                 label   : '年龄', placeholder: '数字键盘', value: '',
                 readonly: true, type: 'text', name: 'age',
-                click   : that => $keyboard.number(false, char => this.input(that, char))
+                click   : that => this.keyboard('number', false, null, that)
             })
         },
         methods   : {
-            input(that, char){
-                var value = that.value.split('');
-                switch (char) {
-                    case 'back':
-                        value.splice(-1);
-                        break;
-                    case '确定':
-                        break;
-                    case 'space':
-                        value.push(' ');
-                    default:
-                        value.push(char);
-                }
-                that.value = value.join('');
-            },
             submit(store){
                 console.log(store);
             }

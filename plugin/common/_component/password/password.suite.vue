@@ -59,10 +59,7 @@
         methods   : {
             change(){
                 this.value = '';
-                this.show  = this.checkType() ? 'complex' : 'simple';
-            },
-            checkType(){
-                return this.show == 'simple';
+                this.show  = this.show == 'simple' ? 'complex' : 'simple';
             },
             _click(){
                 this.show == 'simple' ? this.keyboard('password', true, 6) :
