@@ -9,18 +9,17 @@
     import '../../less/dialog.less'
     import container from '../mixins/container'
     export default {
-        mixins: [container],
-        props: {
+        mixins  : [container],
+        props   : {
             position: {
                 type: String,
             }
         },
-        methods: {
+        methods : {
             click(event){
                 let classList = event.target.classList;
-                if (classList.contains('model-container')) {
-                    this.value = false;
-                }
+                if (classList.contains('model-container'))
+                    this._hide();
                 event.stopPropagation();
             }
         },

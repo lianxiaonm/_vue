@@ -4,7 +4,7 @@
         <v-password-suite type="complex"/>
         <v-password-suite has-change/>
         <v-password-suite has-change type="complex"/>
-        <v-password-modal slot="outer" :show-modal="pwdModal"/>
+        <v-password-modal slot="outer" :show-modal="pwdModal" :submit="submit"/>
     </v-page>
 </template>
 <script type="text/babel">
@@ -24,6 +24,11 @@
                     }
                 },
                 pwdModal: true
+            }
+        },
+        methods   : {
+            submit(password){
+                console.log(password);
             }
         }
     }

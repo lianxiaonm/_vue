@@ -7,13 +7,12 @@ export default {
         },
         input(that, char, maxLen){
             let value = (that.value || '').split('');
-            console.log(char);
             switch (char) {
                 case 'back':
                     value.splice(-1);
                     break;
                 case '确定':
-                    return $keyboard.hide();
+                    return $keyboard.hide(), true;
                 case 'space':
                     value.push(' ');
                     break;
@@ -30,7 +29,7 @@ export default {
                     value.push(char);
             }
             if (maxLen != null) {
-                value.length >= maxLen && $keyboard.hide();
+                //value.length >= maxLen && $keyboard.hide();//收起键盘
                 value.length > maxLen && value.splice(maxLen);
             }
             that.value = value.join('');

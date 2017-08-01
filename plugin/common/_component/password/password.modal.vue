@@ -36,25 +36,24 @@
     import vInput from '../form/input.vue'
     import vKeyboardSimple from '../keyboard/keyboard.simple.vue'
     import vKeyboardComplex from '../keyboard/keyboard.complex.vue'
+    //mixins js
     import _modal from '../mixins/modal'
     import passwordMixin from '../mixins/password';
+    import passwordSuiteMixin from '../mixins/password.suite.js';
     import keyboardMixin from '../mixins/keyboard';
     export default {
-        mixins    : [passwordMixin, keyboardMixin, _modal],
+        mixins    : [
+            passwordMixin,
+            passwordSuiteMixin,
+            keyboardMixin,
+            _modal
+        ],
         components: {
-            vPassword,
-            vInput,
             vKeyboardSimple,
             vKeyboardComplex
         },
         props     : {
-            type     : {
-                default: 'simple'
-            },
-            hasChange: {
-                default: true
-            },
-            forget   : {}
+            submit: {}
         },
         data(){
             return {
@@ -63,18 +62,10 @@
                 others: []
             }
         },
-        computed  : {
-            _hasForget(){
-                return typeof this.forget == 'function';
-            }
-        },
         methods   : {
-            change(){
-                this.value = '';
-                this.show  = this.show == 'simple' ? 'complex' : 'simple';
-            },
             _click(isClose, char){
-                this.input(this, char, this.show == 'simple' ? 6 : 16);
+                this.input(this, char, this.checkType() ? 6 : 16) ?
+                    typeof this.submit == 'function' && this.submit(this.value) : '';
             },
             _close(){
                 this.showModal = false;

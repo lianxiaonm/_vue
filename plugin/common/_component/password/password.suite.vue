@@ -15,54 +15,39 @@
     import vPassword from './password.vue'
     import vInput from '../form/input.vue'
     import passwordMixin from '../mixins/password';
+    import passwordSuiteMixin from '../mixins/password.suite.js';
     import keyboardMixin from '../mixins/keyboard';
     export default {
-        mixins    : [passwordMixin, keyboardMixin],
-        components: {
-            vPassword,
-            vInput
-        },
-        props     : {
-            type     : {
-                default: 'simple'
-            },
-            hasChange: {
-                default: true
-            },
-            forget   : {}
-        },
+        mixins  : [
+            passwordMixin,
+            passwordSuiteMixin,
+            keyboardMixin
+        ],
         data(){
             return {
                 show: this.type == 'simple' ? 'simple' : 'complex'
             }
         },
-        computed  : {
+        computed: {
             _type(){
-                return this.show == 'simple';
+                return this.checkType();
             },
             _typeClass(){
-                return this.show == 'simple' ? 'simple' : 'default';
-            },
-            _hasForget(){
-                return typeof this.forget == 'function';
+                return this.checkType() ? 'simple' : 'default';
             }
         },
-        watch     : {
+        watch   : {
             value(val){
                 this.$refs.$btn.disabled = (val || '').length < 6;
                 this.$emit('input', val);
             },
             type(val){
-                this.show = val == 'simple' ? 'simple' : 'complex'
+                this.show = this.checkType(val) ? 'simple' : 'complex'
             }
         },
-        methods   : {
-            change(){
-                this.value = '';
-                this.show  = this.show == 'simple' ? 'complex' : 'simple';
-            },
+        methods : {
             _click(){
-                this.show == 'simple' ? this.keyboard('password', true, 6) :
+                this.checkType() ? this.keyboard('password', true, 6) :
                     this.keyboard('complex', true, 16);
             },
         }

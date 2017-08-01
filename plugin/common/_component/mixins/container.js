@@ -4,7 +4,7 @@ import { $backdrop } from '../../service/common'
 export default {
     props  : {
         value: {
-            type: Boolean
+            default: false
         }
     },
     data(){
@@ -20,6 +20,9 @@ export default {
         _hide(){
             this.show = false;
         }
+    },
+    beforeDestroy(){
+        this.show && $backdrop.release();
     },
     watch  : {
         value(val){
