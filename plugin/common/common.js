@@ -7,6 +7,7 @@ import VueRouter from 'vue-router'
 import './component/dialog'
 import './component/page'
 import './component/form'
+import './component/password'
 import './less/layout.less'
 
 Vue.use(VueRouter);

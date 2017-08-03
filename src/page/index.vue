@@ -39,6 +39,9 @@
                     {url: 'keyboard', text: '虚拟键盘'},
                     {url: 'form', text: 'form表单'},
                     {url: 'password', text: '密码组件'},
+                    {url: 'tabs', text: 'tab页组件'},
+                    {url: 'collapse', text: '折叠面板'},
+                    {url: 'filter', text: '筛选组件'},
                 ]
             }
         },

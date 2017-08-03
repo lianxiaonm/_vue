@@ -9,7 +9,9 @@ const routes = [
     require('../routers/iconRouter').default,
     require('../routers/keyboardRouter').default,
     require('../routers/formRouter').default,
-    require('../routers/passwordRouter').default
+    require('../routers/passwordRouter').default,
+    require('../routers/collapseRouter').default
+
 ]
 
 export default new VueRouter({
