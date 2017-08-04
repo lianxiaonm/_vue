@@ -10,7 +10,8 @@ const routes = [
     require('../routers/keyboardRouter').default,
     require('../routers/formRouter').default,
     require('../routers/passwordRouter').default,
-    require('../routers/collapseRouter').default
+    require('../routers/collapseRouter').default,
+    require('../routers/filterRouter').default
 
 ]
 

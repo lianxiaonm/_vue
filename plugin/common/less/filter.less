@@ -1,0 +1,44 @@
+@import (reference) "mixins.less";
+
+.filter-body {
+    &.lf {
+        display: flex; display: -webkit-flex;
+        .scroll-wrapper {
+            flex: 1; -webkit-flex: 1; left: auto; background: #F5F5F5;
+            &:last-of-type {
+                flex: inherit; -webkit-flex: inherit; background: #FFF;
+                &:nth-of-type(2) { width: 68%; }
+                &:nth-of-type(3) { width: 40%; }
+                .item-ul { .px2rem(padding-left, 35);
+                    > li {
+                        border-bottom: 1px solid #DDD; .px2rem(padding-left, 0);
+                        &.active { color: #49A6FF; border-bottom-color: #49A6FF; }
+                    }
+                }
+            }
+        }
+    }
+    .scroll-wrapper { position: relative; background: #FFF;
+        .item-ul > li {
+            .px2rem(line-height, 48); .px2rem(font-size, 28); color: #333; .px2auto-multi(padding, 20, 35);
+            white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+            &.active { background: #FFF; color: #49A6FF }
+        }
+    }
+}
+
+.vx-header ~ .filter-modal { .px2rem(top, 100); }
+
+.filter-modal .filter-body { top: 0;
+    &.tp {
+        &, .scroll-wrapper { .px2rem(height, 350); }
+        .item-ul {
+            &:before { display: table; content: '' }
+            &:after { clear: both; display: table; content: '' }
+            > li {
+                .px2auto-multi(padding, 20, 20); position: relative; min-height: 1px; float: left; text-align: center; width: 25%;
+            }
+        }
+    }
+    &.lf { right: 0 !important; }
+}
