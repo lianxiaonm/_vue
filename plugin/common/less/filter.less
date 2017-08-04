@@ -4,24 +4,35 @@
     &.lf {
         display: flex; display: -webkit-flex;
         .scroll-wrapper {
-            flex: 1; -webkit-flex: 1; left: auto; background: #F5F5F5;
-            &:last-of-type {
-                flex: inherit; -webkit-flex: inherit; background: #FFF;
+            flex: 1; -webkit-flex: 1; left: auto; background: #FFF;
+            .item-ul { .px2rem(padding-left, 35);
+                > li {
+                    border-bottom: 1px solid #DDD; .px2rem(padding-left, 0);
+                    &.active { color: #49A6FF; border-bottom-color: #49A6FF; }
+                }
+            }
+            &:last-of-type { flex: inherit; -webkit-flex: inherit;
                 &:nth-of-type(2) { width: 68%; }
                 &:nth-of-type(3) { width: 40%; }
-                .item-ul { .px2rem(padding-left, 35);
-                    > li {
-                        border-bottom: 1px solid #DDD; .px2rem(padding-left, 0);
-                        &.active { color: #49A6FF; border-bottom-color: #49A6FF; }
+                .item-ul > li.active {
+                    &:after {
+                        content: '\e645'; font-family: iconfont;
+                        position: absolute; .px2rem(right, 15);
                     }
+                }
+            }
+            &:first-of-type { background: #F5F5F5;
+                .item-ul { padding-left: 0;
+                    > li { border: none; .px2rem(padding-left, 20); }
                 }
             }
         }
     }
     .scroll-wrapper { position: relative; background: #FFF;
+        .scroll-body { width: 100% }
         .item-ul > li {
             .px2rem(line-height, 48); .px2rem(font-size, 28); color: #333; .px2auto-multi(padding, 20, 35);
-            white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+            white-space: nowrap; text-overflow: ellipsis; overflow: hidden; position: relative;
             &.active { background: #FFF; color: #49A6FF }
         }
     }
@@ -31,7 +42,7 @@
 
 .filter-modal .filter-body { top: 0;
     &.tp {
-        &, .scroll-wrapper { .px2rem(height, 350); }
+        &, .scroll-wrapper { .px2rem(height, 380); }
         .item-ul {
             &:before { display: table; content: '' }
             &:after { clear: both; display: table; content: '' }

@@ -46,6 +46,7 @@
         },
         methods   : {
             _click(len, code){
+                if (this.codes[len] === code) return;
                 this.codes = this.codes.map(function (_code, idx) {
                     return idx < len ? _code : idx == len ? code : null;
                 });
