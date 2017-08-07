@@ -20,7 +20,7 @@ export default {
                 slots  = self.$slots.default || [],
                 vStore = self.vStore;
             slots.forEach(({componentOptions}) => {
-                if (componentOptions.tag != "v-input") return;
+                if (!componentOptions || componentOptions.tag != "v-input") return;
                 let props = componentOptions.propsData,
                     name  = props.name,
                     label = props.label || '',

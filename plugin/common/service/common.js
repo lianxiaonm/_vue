@@ -93,6 +93,16 @@ export function extend(dst) { //浅复制 TXDX
     return dst;
 }
 
+//拓展方法
+export function makeMap(str, obj, val) {
+    var items     = isArray(str) ? str : str.split(","),
+        i = 0, ii = items.length;
+    for (; i < ii; i++) {
+        obj[items[i]] = val;
+    }
+    return obj;
+}
+
 export function createElement(tagName, attrMap) {
     if (!isBrowser) return {};
     var element = document.createElement(tagName);

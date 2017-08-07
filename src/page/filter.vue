@@ -20,7 +20,7 @@
             return {
                 options     : {
                     title: {
-                        value         : '筛选器',
+                        value         : '省市区筛选',
                         type          : 'TitleWithTab',
                         onOpenHandler : () => {
                             this.filterModal1 = false;
