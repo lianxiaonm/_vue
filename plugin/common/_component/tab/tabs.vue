@@ -1,11 +1,17 @@
 <template>
-    <div class="tab-view _v1 inline-x">
-        <v-scroll :options="options" class="tab-nav-v1">
+    <div class="tab-view" :class="{'inline-x':scrollType}">
+        <v-scroll v-if="scrollType" :options="options" class="tab-nav-v1">
             <span v-for="tab in tabs"
                   v-html="tab.label"
                   @tap="_click(tab.key)"
                   :class="{on:active[tab.key]}"/>
         </v-scroll>
+        <ul v-else class="tab-nav">
+            <li v-for="tab in tabs"
+                v-html="tab.label"
+                @tap="_click(tab.key)"
+                :class="{on:active[tab.key]}"/>
+        </ul>
         <div class="tab-body">
             <slot/>
         </div>
@@ -21,6 +27,7 @@
         },
         props     : {
             defaultActive: '',
+            type         : '',
             change       : {
                 default: () => {}
             }
@@ -34,6 +41,11 @@
         },
         mounted(){
             this.structure();
+        },
+        computed  : {
+            scrollType(){
+                return this.type == 'scroll';
+            }
         },
         watch     : {
             active(val){
@@ -50,7 +62,7 @@
                     let props   = componentOptions.propsData,
                         _tabObj = {
                             label: props.label || '默认标题',
-                            key  : props.keys || (self.tabs.length + '')
+                            key  : props.name || (self.tabs.length + '')
                         }
                     self.tabs.push(_tabObj);
                     props.isActive = !!self.active[_tabObj.key]

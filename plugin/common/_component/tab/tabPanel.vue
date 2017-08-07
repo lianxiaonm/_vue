@@ -14,6 +14,7 @@
             label   : {
                 default: '默认标题'
             },
+            name    : '',
             isActive: {
                 default: false,
             }
