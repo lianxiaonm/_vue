@@ -12,7 +12,8 @@ const routes = [
     require('../routers/passwordRouter').default,
     require('../routers/collapseRouter').default,
     require('../routers/filterRouter').default,
-    require('../routers/tabsRouter').default
+    require('../routers/tabsRouter').default,
+    require('../routers/carouselRouter').default
 ]
 
 export default new VueRouter({

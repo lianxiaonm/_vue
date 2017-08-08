@@ -1,0 +1,22 @@
+@import (reference) "mixins.less";
+
+.carousel-wrapper {
+    position: relative; z-index: 1; overflow: hidden; width: 100%;
+    .carousel-body {
+        font-size: 0; position: relative; -webkit-transition: all 0s linear; transition: all 0s linear; white-space: nowrap;
+        &.loop { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+        .carousel-item {
+            position: relative; display: inline-block; width: 100%; height: 100%; vertical-align: top; white-space: nowrap;
+            img {
+                width: 100%; height: auto; margin: 0 auto;
+            }
+        }
+    }
+    .carousel-indicator {
+        position: absolute; .px2rem(bottom, 16); width: 100%; text-align: center; background: transparent;
+        .indicator {
+            display: inline-block; .px2rem(width, 16); .px2rem(height, 16); .px2auto-multi(margin, 2, 8); border-radius: 100%; background: #333;
+            &.active { background: #49A6FF; }
+        }
+    }
+}

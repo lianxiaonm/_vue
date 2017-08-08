@@ -42,6 +42,7 @@
                     {url: 'tabs', text: 'tab页组件'},
                     {url: 'collapse', text: '折叠面板'},
                     {url: 'filter', text: '筛选组件'},
+                    {url: 'carousel', text: '走马灯'},
                 ]
             }
         },
