@@ -43,6 +43,7 @@
                     {url: 'collapse', text: '折叠面板'},
                     {url: 'filter', text: '筛选组件'},
                     {url: 'carousel', text: '走马灯'},
+                    {url: 'noticeBar', text: '通告栏'},
                 ]
             }
         },
