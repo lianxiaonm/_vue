@@ -6,8 +6,6 @@
         <v-carousel :items="items" :click="click" is-loop="true" :auto="auto"/>
         <h3>非循环轮播</h3>
         <v-carousel :items="items" :click="click"/>
-        <h3>非循环轮播</h3>
-        <v-carousel :items="items" :click="click" :auto="auto"/>
     </v-page>
 </template>
 <script type="text/babel">

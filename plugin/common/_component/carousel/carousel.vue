@@ -69,7 +69,7 @@
             vStatus(val){
                 clearTimeout(this._timeout);
                 this._timeout = (val === 2 && this.auto) ? setTimeout(() => {
-                    this.vStatus = 1;
+                    this.vStatus = 0;
                     this.scrollTo(this.scrollX - this.itemWidth, 350);
                 }, ~~this.auto) : null;
             }
