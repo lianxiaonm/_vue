@@ -20,9 +20,7 @@
     export default {
         mixins : [_modal],
         props  : {
-            screen : {
-                type: String
-            },
+            screen : '',
             text   : {},
             options: {}
         },

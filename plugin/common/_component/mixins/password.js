@@ -4,8 +4,6 @@ export default {
         value : {
             default: ''
         },
-        submit: {
-            type: Function
-        }
+        submit: ''
     }
 }

@@ -22,8 +22,6 @@
                 isActive: false
             }
         },
-        mounted(){
-        },
         computed: {
             getTitle(){
                 return `<i class="icon-font ${this.icon}"></i>${this.title}`;

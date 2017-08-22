@@ -11,9 +11,7 @@
     export default {
         mixins  : [container],
         props   : {
-            position: {
-                type: String,
-            }
+            position: ''
         },
         methods : {
             click(event){

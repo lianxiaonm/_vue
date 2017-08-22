@@ -22,9 +22,7 @@
             }
         },
         props  : {
-            click: {
-                type: Function
-            }
+            click: ''
         },
         methods: {
             getClass(n){

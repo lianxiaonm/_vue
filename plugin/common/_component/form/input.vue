@@ -30,28 +30,18 @@
             type       : {
                 default: 'text'
             },
-            name       : {},
-            value      : {
-                type: String
-            },
-            maxLength  : {
-                type: Number
-            },
+            name       : '',
+            value      : '',
+            maxLength  : '',
             require    : {
                 default: false
             },
             readonly   : {
                 default: false,
             },
-            placeholder: {
-                type: String
-            },
-            validate   : {
-                type: Function
-            },
-            click      : {
-                type: Function
-            }
+            placeholder: '',
+            validate   : '',
+            click      : ''
         },
         data(){
             return {

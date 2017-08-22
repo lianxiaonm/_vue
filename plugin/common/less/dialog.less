@@ -48,12 +48,12 @@
             .item-list {
                 background: #FFF; letter-spacing: .1rem; color: #3D98CC;
                 &:active { opacity: .8 }
-                &:first-of-type { .px2auto-multi(border-radius, 10, 10, 0, 0); }
-                &:last-of-type { .px2auto-multi(border-radius, 0, 0, 10, 10);
+                &:first-of-type { .px2auto-multi(border-radius, 4, 4, 0, 0); }
+                &:last-of-type { .px2auto-multi(border-radius, 0, 0, 4, 4);
                     &:before { content: none }
                 }
-                &:first-of-type:last-of-type { .px2rem(border-radius, 10); }
-                &:after { left: 0 }
+                &:first-of-type:last-of-type { .px2rem(border-radius, 4); }
+                &:before, &:after { left: 0 }
                 &.cancel { color: #FF8568 }
             }
         }
@@ -72,7 +72,7 @@
 
 /*loading*/
 .loading-container {
-    .px2rem(font-size, 28); .px2auto-multi(padding, 25, 25); .px2rem(border-radius, 10);
+    .px2rem(font-size, 28); .px2auto-multi(padding, 20, 20); .px2rem(border-radius, 4);
     z-index: 9994; background-color: rgba(0, 0, 0, 0.6); text-align: center; color: #FFF;
     -webkit-transition: all .3s; transition: all .3s; text-overflow: ellipsis;
     [class*='spinner-'] { fill: #FFF; stroke: #FFF; }
@@ -104,14 +104,17 @@
     &.top { top: 30%; z-index: 9991 }
     &.bottom { top: 70%; z-index: 9991 }
     .popup {
-        .px2rem(border-radius, 8); .px2rem(width, 550); .px2rem(font-size, 34);
+        .px2rem(border-radius, 4); .px2rem(width, 550); .px2rem(font-size, 30);
         -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .2); box-shadow: 0 0 2px rgba(0, 0, 0, .2);
-        text-align: center; background-color: rgba(255, 255, 255, 1);
+        text-align: center; background-color: #FFF;
         .popup-head {
             .px2auto-multi(padding, 30, 20, 15);
-            .popup-title { .px2rem(font-size, 30); font-weight: normal }
+            .popup-title { font-size: 1.1em; font-weight: normal }
             .popup-sub-title {
                 .px2rem(margin-top, 10); .px2rem(font-size, 20); font-weight: normal;
+            }
+            ~ .popup-body {
+                .px2auto-multi(padding, 24, 24, 48);
             }
         }
         .popup-body {

@@ -19,16 +19,13 @@
         },
         props     : {
             type  : {
-                type   : String,
                 default: 'simple'
             },
             //simple 配置
             keys  : {
-                type   : Array,
                 default: []
             },
             others: {
-                type   : Array,
                 default: []
             },
             //complex 配置

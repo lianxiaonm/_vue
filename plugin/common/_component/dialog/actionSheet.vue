@@ -19,7 +19,6 @@
         mixins : [_modal],
         props  : {
             btnList: {
-                type   : Array,
                 default: []
             }
         },

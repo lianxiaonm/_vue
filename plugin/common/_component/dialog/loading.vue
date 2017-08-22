@@ -13,9 +13,7 @@
     export default {
         mixins: [_modal],
         props : {
-            text : {
-                type: String
-            },
+            text : '',
             toast: {
                 default: false
             }

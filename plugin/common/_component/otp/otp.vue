@@ -26,14 +26,11 @@
             vInput
         },
         props     : {
-            phone       : {
-                type: String
-            },
+            phone       : '',
             readonly    : {
                 default: false
             },
             submit      : {
-                type   : Function,
                 default: () => {}
             },
             defaultCount: {

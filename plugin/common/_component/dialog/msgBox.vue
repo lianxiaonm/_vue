@@ -22,18 +22,12 @@
     export default {
         mixins : [_modal],
         props  : {
-            title   : {
-                type: String
-            },
-            subTitle: {
-                type: String
-            },
+            title   : '',
+            subTitle: '',
             content : {
-                type   : String,
                 default: ''
             },
             btnList : {
-                type   : Array,
                 default: []
             }
         },

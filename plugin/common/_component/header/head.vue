@@ -21,9 +21,7 @@
     import { valueFn, isBrowser } from '../../service/common'
     export default {
         props  : {
-            options: {
-                type: Object
-            }
+            options: {}
         },
         data(){
             let {left, title, right, mandatoryUseH5Header} = updateOption(this.options);

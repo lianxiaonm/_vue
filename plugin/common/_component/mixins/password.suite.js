@@ -13,7 +13,7 @@ export default {
         hasChange: {
             default: true
         },
-        forget   : {}
+        forget   : ''
     },
     computed  : {
         _hasForget(){

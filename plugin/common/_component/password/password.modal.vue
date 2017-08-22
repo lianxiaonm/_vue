@@ -62,10 +62,17 @@
                 others: []
             }
         },
+        watch     : {
+            value(val){
+                this.checkType() && val.length == 6 && this._commit()
+            }
+        },
         methods   : {
             _click(isClose, char){
-                this.input(this, char, this.checkType() ? 6 : 16) ?
-                    typeof this.submit == 'function' && this.submit(this.value) : '';
+                this.input(this, char, this.checkType() ? 6 : 16) ? this._commit() : '';
+            },
+            _commit(){
+                typeof this.submit == 'function' && this.submit(this.value);
             },
             _close(){
                 this.showModal = false;

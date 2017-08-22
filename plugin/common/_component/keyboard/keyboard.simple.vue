@@ -21,9 +21,7 @@
             others: {
                 default: []
             },
-            click : {
-                type: Function
-            }
+            click : ''
         },
         computed: {
             getClazz(){

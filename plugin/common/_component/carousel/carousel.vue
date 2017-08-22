@@ -16,7 +16,6 @@
     import carouselMixins from '../mixins/carousel'
     export default {
         mixins : [carouselMixins],
-        props  : {},
         created(){
             this.initialize();
         },

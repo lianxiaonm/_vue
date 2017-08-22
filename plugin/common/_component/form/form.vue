@@ -16,7 +16,6 @@
                 default: '确定'
             },
             submit : {
-                type   : Function,
                 default: () => {}
             }
         },

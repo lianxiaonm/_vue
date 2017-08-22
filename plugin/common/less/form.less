@@ -1,18 +1,5 @@
 @import (reference) "mixins.less";
 //
-button, input, select { -webkit-appearance: none; appearance: none; border: none; }
-
-input[type=number] {
-    &::-webkit-inner-spin-button {
-        -webkit-appearance: none; appearance: none;
-    }
-}
-
-input[type=search] {
-    &::-webkit-search-cancel-button {
-        -webkit-appearance: none; appearance: none;
-    }
-}
 
 .input-group {
     .border-handle(1000, #D8D8D8, solid);
@@ -84,25 +71,11 @@ input[type=search] {
         .r_btn { display: block; color: #4285F4; .px2rem(font-size, 24); .px2rem(max-width, 110); }
     }
     &.error {
-        &:before { border-color: #F00 }
+        &:before { border-color: #F00; left: 0 }
         .err-tip { display: inline-block; color: #F00; text-align: left; pointer-events: none; }
     }
     input {
         display: block; width: 100%;
     }
-}
-
-button {
-    .px2auto-multi(margin, 20, auto);
-    .px2rem(line-height, 88);
-    .px2auto-multi(padding, 0, 20);
-    .px2rem(font-size, 32);
-    .px2rem(border-radius, 6);
-    display: block; width: 88%;
-    background: #49A6FF; color: #FFF;
-    &:active { opacity: .8 }
-    &:disabled { opacity: .4 }
-    &.default { background: #FFF; color: #333; }
-    > .icon-font { font-size: .42rem; .px2rem(margin-right, 12); }
 }
 
