@@ -15,9 +15,9 @@
     </v-page-static>
 </template>
 <script type="text/babel">
-    import { vPageStatic } from '../../plugin/common/component/page'
-    import { vFilterModal, vFilterLinkage } from '../../plugin/common/component/filter'
-    import $log from '../../plugin/common/service/log'
+    import { vPageStatic } from '../../plugin/common/components/page'
+    import { vFilterModal, vFilterLinkage } from '../../plugin/common/components/filter'
+    import $log from '../../plugin/common/services/log'
     import city from '../store/city'
     import cityData from '../store/city.data'
     import cityData3 from '../store/city.data-3'

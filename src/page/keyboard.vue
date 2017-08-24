@@ -17,10 +17,10 @@
     </v-page>
 </template>
 <script type="text/babel">
-    import { vPage } from '../../plugin/common/component/page'
-    import keyboardMixins from '../../plugin/common/_component/mixins/keyboard'
-    import { $keyboard } from '../../plugin/common/component/keyboard'
-    import { vInput, vForm } from '../../plugin/common/component/form'
+    import { vPage } from '../../plugin/common/components/page'
+    import keyboardMixins from '../../plugin/common/_components/mixins/keyboard'
+    import { $keyboard } from '../../plugin/common/components/keyboard'
+    import { vInput, vForm } from '../../plugin/common/components/form'
 
     export default {
         mixins    : [keyboardMixins],

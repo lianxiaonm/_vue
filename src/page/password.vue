@@ -9,8 +9,8 @@
     </v-page>
 </template>
 <script type="text/babel">
-    import { vPage } from '../../plugin/common/component/page'
-    import { vPasswordSuite, vPasswordModal } from '../../plugin/common/component/password'
+    import { vPage } from '../../plugin/common/components/page'
+    import { vPasswordSuite, vPasswordModal } from '../../plugin/common/components/password'
     export default {
         components: {
             vPage,

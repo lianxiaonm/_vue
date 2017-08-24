@@ -18,10 +18,10 @@
     </v-page>
 </template>
 <script type="text/babel">
-    import { vPage } from '../../plugin/common/component/page'
-    import { vInput, vForm } from '../../plugin/common/component/form'
-    import { vOtp } from '../../plugin/common/component/otp'
-    import $log from '../../plugin/common/service/log'
+    import { vPage } from '../../plugin/common/components/page'
+    import { vInput, vForm } from '../../plugin/common/components/form'
+    import { vOtp } from '../../plugin/common/components/otp'
+    import $log from '../../plugin/common/services/log'
     export default {
         components: {
             vPage,

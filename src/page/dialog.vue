@@ -4,9 +4,9 @@
     </v-page>
 </template>
 <script type="text/babel">
-    import { vPage } from '../../plugin/common/component/page'
-    import { $dialog } from '../../plugin/common/component/dialog'
-    import $log from '../../plugin/common/service/log'
+    import { vPage } from '../../plugin/common/components/page'
+    import { $dialog } from '../../plugin/common/components/dialog'
+    import $log from '../../plugin/common/services/log'
     export default {
         components: {
             vPage

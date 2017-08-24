@@ -22,9 +22,9 @@
     </v-page>
 </template>
 <script type="text/babel">
-    import { vPage } from '../../plugin/common/component/page'
-    import { vCollapse } from '../../plugin/common/component/collapse'
-    import $log from '../../plugin/common/service/log'
+    import { vPage } from '../../plugin/common/components/page'
+    import { vCollapse } from '../../plugin/common/components/collapse'
+    import $log from '../../plugin/common/services/log'
     export default {
         components: {
             vPage,

@@ -55,9 +55,9 @@
     </v-page-static>
 </template>
 <script type="text/babel">
-    import { vPage, vPageStatic } from '../../plugin/common/component/page'
-    import { vTabs, vTabPanel } from '../../plugin/common/component/tabs'
-    import $log from '../../plugin/common/service/log'
+    import { vPage, vPageStatic } from '../../plugin/common/components/page'
+    import { vTabs, vTabPanel } from '../../plugin/common/components/tabs'
+    import $log from '../../plugin/common/services/log'
     export default {
         components: {
             vPage,

@@ -10,7 +10,7 @@
     </v-page>
 </template>
 <script type="text/babel">
-    import { vPage } from '../../plugin/common/component/page'
+    import { vPage } from '../../plugin/common/components/page'
 
     export default {
         components: {
