@@ -1,7 +1,7 @@
 <template>
     <div class="model-container"
          :class="[ typeClass ]"
-         @click="click">
+         @tap="click">
         <slot/>
     </div>
 </template>

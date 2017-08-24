@@ -5,8 +5,8 @@
         <v-password v-model="value" :click="_click"/>
         <v-input label="支付密码" type="password" :readonly="true" v-model="value" :click="_click"/>
         <p class="corner">
-            <a v-if="hasChange" @click="change" v-html="show=='simple'?'复杂密码':'简单密码'"/>
-            <a v-if="_hasForget" @click="forget">忘记密码</a>
+            <a v-if="hasChange" @tap="change" v-html="show=='simple'?'复杂密码':'简单密码'"/>
+            <a v-if="_hasForget" @tap="forget">忘记密码</a>
         </p>
         <button disabled ref="$btn">下一步</button>
     </div>

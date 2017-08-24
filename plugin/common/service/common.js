@@ -8,12 +8,27 @@ export const isBrowser = !!(typeof window !== 'undefined' && window.document);
 
 export const isArray = Array.isArray;
 
+export function lowercase(string) {
+    return isString(string) ? string.toLowerCase() : string;
+}
+export function uppercase(string) {
+    return isString(string) ? string.toUpperCase() : string;
+}
+
 export function isFunction(object) {
     return typeof object === 'function';
 }
 
 export function isString(object) {
     return typeof object === 'string';
+}
+
+export function isUndefined(object) {
+    return typeof object === 'undefined';
+}
+
+export function isDefined(object) {
+    return !isUndefined(object);
 }
 
 export function isNumber(object) {
@@ -91,6 +106,14 @@ export function extend(dst) { //浅复制 TXDX
         }
     }
     return dst;
+}
+
+let F = function () {}
+export function inherit(C, P) {
+    F.prototype             = P.prototype;
+    C.prototype             = new F();
+    C.uber                  = P.prototype;
+    C.prototype.constructor = C;
 }
 
 //拓展方法

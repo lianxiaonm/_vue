@@ -15,6 +15,9 @@
             let el       = this.$el;
             this._scroll = new IScroll(el, this.options || {});
         },
+        updated(){
+            this._scroll.refresh()
+        },
         methods: {}
     }
 </script>

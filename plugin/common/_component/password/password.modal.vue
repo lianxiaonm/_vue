@@ -11,8 +11,8 @@
             <div class="pwd-group">
                 <v-password v-model="value"/>
                 <p class="corner">
-                    <a v-if="hasChange" @click="change" v-html="'复杂密码'"/>
-                    <a v-if="_hasForget" @click="forget">忘记密码</a>
+                    <a v-if="hasChange" @tap="change" v-html="'复杂密码'"/>
+                    <a v-if="_hasForget" @tap="forget">忘记密码</a>
                 </p>
             </div>
         </v-keyboard-simple>
@@ -24,8 +24,8 @@
             <div class="pwd-group">
                 <v-input label="支付密码" type="password" :readonly="true" v-model="value" placeholder="请输入支付密码"/>
                 <p class="corner">
-                    <a v-if="hasChange" @click="change" v-html="'简单密码'"/>
-                    <a v-if="_hasForget" @click="forget">忘记密码</a>
+                    <a v-if="hasChange" @tap="change" v-html="'简单密码'"/>
+                    <a v-if="_hasForget" @tap="forget">忘记密码</a>
                 </p>
             </div>
         </v-keyboard-complex>

@@ -7,7 +7,7 @@
                 <li class="col-3"
                     v-for="item in items"
                     :class="item.className"
-                    @click="_click(item)">{{item.text}}
+                    @tap="_click(item)">{{item.text}}
                 </li>
             </ul>
         </div>

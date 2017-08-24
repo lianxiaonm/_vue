@@ -1,5 +1,5 @@
 <template>
-    <ul class="simple-pwd" @click="click">
+    <ul class="simple-pwd" @tap="click">
         <li v-for="item in items" v-html="item"></li>
     </ul>
 </template>

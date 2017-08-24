@@ -6,6 +6,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const node_modules = path.resolve(__dirname, 'node_modules');
 
+const config = require('./config/config')
+
+
 module.exports = {
     entry  : {
         vendor: [
@@ -57,7 +60,9 @@ module.exports = {
         new webpack.optimize.DedupePlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
+                'NODE_ENV' : JSON.stringify('production'),
+                'remoteApi': JSON.stringify(config.remoteApi.localhost),
+                'apiBaseData' : JSON.stringify('')
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({

@@ -12,7 +12,7 @@
             <span class="btn"
                   v-for="(b, i) in btnList"
                   :class="b.type||'btn-default'"
-                  @click="close(i)">{{b.text}}</span>
+                  @tap="close(i)">{{b.text}}</span>
             </div>
         </div>
     </v-pop>

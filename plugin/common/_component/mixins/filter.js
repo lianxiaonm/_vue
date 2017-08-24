@@ -1,4 +1,4 @@
-import { isArray, isFunction } from '../../service/common'
+import { isFunction } from '../../service/common'
 import vFilter from '../filter/filter.vue'
 
 export const $watch = function (list, filterList, selectMap) {
@@ -41,7 +41,9 @@ export default {
     },
     methods   : {
         _commit(idx){
-            isFunction(this.change) && idx + 1 == this.list.length && this.change(this.select)
+            this.$nextTick(() => {
+                isFunction(this.change) && idx + 1 == this.list.length && this.change(this.select)
+            })
         }
     },
     beforeMount(){

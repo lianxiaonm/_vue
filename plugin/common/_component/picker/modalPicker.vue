@@ -2,8 +2,8 @@
     <v-modal v-model="showModal">
         <div class="pop-picker">
             <div class="pop-picker-header">
-                <span class="btn btn-default" @click="_click(false)">取消</span>
-                <span class="btn btn-positive" @click="_click(true)">确定</span>
+                <span class="btn btn-default" @tap="_click(false)">取消</span>
+                <span class="btn btn-positive" @tap="_click(true)">确定</span>
             </div>
             <date-picker v-if="type=='date'" :options="options" ref="_picker"/>
             <linkage-picker v-else :pk-list="options" :select="select" ref="_picker"/>

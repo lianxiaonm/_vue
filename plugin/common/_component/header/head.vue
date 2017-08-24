@@ -3,16 +3,16 @@
         <div class="head-left">
             <i class="icon-font"
                v-if="left.show"
-               @click="left.goBackHandler()">&#xe679;</i>
+               @tap="left.goBackHandler()">&#xe679;</i>
         </div>
         <h3 class="head-title"
             :class="tabState"
-            @click="_click" v-html="title.value || '默认标题'"/>
+            @tap="_click" v-html="title.value || '默认标题'"/>
         <div class="head-right">
             <i v-for="r in right"
                :style="r.bgStyleTmpl"
                :class="{'icon':r.isOnlyImage}"
-               @click="r.onClickHandler">{{r.isOnlyTitle ? r.textValue : ''}}</i>
+               @tap="r.onClickHandler">{{r.isOnlyTitle ? r.textValue : ''}}</i>
         </div>
     </header>
 </template>

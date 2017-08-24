@@ -1,25 +1,20 @@
 <template>
     <div class='input-group'>
         <slot/>
-        <button ref="btnNode" v-html="btnText" @click="_submit"/>
+        <button ref="btnNode" v-html="btnText" @tap="_submit"/>
     </div>
 </template>
 <script type="text/babel">
-    import Vue from 'vue'
     import formMixins from '../mixins/form'
     import $log from '../../service/log'
-
     export default {
-        mixins: [formMixins],
-        props : {
+        mixins : [formMixins],
+        props  : {
             btnText: {
                 default: '确定'
             },
-            submit : {
-                default: () => {}
-            }
+            submit : ''
         },
-
         methods: {
             _submit(event) {
                 event.stopPropagation();

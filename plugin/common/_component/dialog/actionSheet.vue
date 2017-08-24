@@ -3,12 +3,12 @@
         <div class="action-sheet">
             <ul class="item-view">
                 <li v-for="(btn,idx) in btnList"
-                    @click="_click(idx)"
+                    @tap="_click(idx)"
                     class="item-list"
                     v-html="btn.txt == null ? btn : btn.txt"/>
             </ul>
             <ul class="item-view">
-                <li class="item-list cancel" @click="_click(false)">取消</li>
+                <li class="item-list cancel" @tap="_click(false)">取消</li>
             </ul>
         </div>
     </v-modal>

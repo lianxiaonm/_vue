@@ -5,7 +5,7 @@
         display: flex; display: -webkit-flex;
         .scroll-wrapper {
             flex: 1; -webkit-flex: 1; left: auto; background: #FFF;
-            .filter-ul { .px2rem(padding-left, 35);
+            .filter-ul { .px2rem(padding-left, 30);
                 > li {
                     border-bottom: 1px solid #DDD; .px2rem(padding-left, 0);
                     &.active { color: #49A6FF; border-bottom-color: #49A6FF; }
@@ -15,6 +15,7 @@
                 &:nth-of-type(2) { width: 68%; }
                 &:nth-of-type(3) { width: 44%; }
                 .filter-ul > li.active {
+                    .px2rem(padding-right, 40);
                     &:after {
                         content: '\e645'; font-family: iconfont;
                         position: absolute; .px2rem(right, 15);
@@ -35,7 +36,7 @@
 
 .filter-ul {
     > li {
-        .px2rem(line-height, 48); .px2rem(font-size, 28); color: #333; .px2auto-multi(padding, 20, 35);
+        .px2rem(line-height, 48); .px2rem(font-size, 28); color: #333; .px2auto-multi(padding, 20, 20, 20, 30);
         white-space: nowrap; text-overflow: ellipsis; overflow: hidden; position: relative;
         &.active { background: #FFF; color: #49A6FF }
     }

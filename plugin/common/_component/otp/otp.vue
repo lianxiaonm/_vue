@@ -11,14 +11,18 @@
                  :validate="i.validate"
                  :require="i.require"
                  :placeholder="i.placeholder">
-            <img v-if="!isNormal" class="r_btn" :src="picSrc" @click="refresh"/>
-            <span v-else-if="isNormal&&idx==1" class="r_btn" @click="sendOtp" v-html="btnTxt"/>
+            <img v-if="!isNormal" class="r_btn" :src="picSrc" @tap="refresh"/>
+            <span v-else-if="isNormal&&idx==1" class="r_btn" @tap="sendOtp" v-html="btnTxt"/>
         </v-input>
     </v-form>
 </template>
 <script type="text/babel">
     import { vForm, vInput } from '../../component/form'
     import { maxLength, isPhone } from '../../service/validate'
+    import { isFunction, extend } from '../../service/common'
+    import { $dialog } from '../../component/dialog'
+    import $log from '../../service/log'
+    import otpApi from '../../api/optApi'
 
     export default {
         components: {
@@ -30,15 +34,15 @@
             readonly    : {
                 default: false
             },
-            submit      : {
-                default: () => {}
-            },
+            submit      : '',
             defaultCount: {
                 default: 60
-            }
+            },
+            trySendOtp  : '',
+            extraData   : ''
         },
         data(){
-            this.vStore   = {phone: this.phone}; //数据仓库
+            this.vStore   = {phone: this.phone};
             this.vNormal  = [
                 {
                     name       : 'phone',
@@ -68,18 +72,20 @@
                     validate   : this.validate.bind(this, 'picCode')
                 }
             ];
+            this.send     = 0;
+            this.count    = this.defaultCount;
             return {
                 btnTxt  : '获取',
                 inputs  : [...this.vNormal],
+                //数据仓库
                 vStore  : {
                     phone  : this.phone,
                     code   : '',
                     picCode: ''
                 },
-                count   : this.defaultCount,
-                send    : 0,
                 isNormal: true,
-                picSrc  : ''//https://cashier.xxxx.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd'   //图片验证码地址
+                picSrc  : ''
+                //https://cashier.xxxx.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd'   //图片验证码地址
             }
         },
         methods   : {
@@ -87,11 +93,40 @@
                 return key == 'phone' ? isPhone(val) : key == 'picCode' ? maxLength(val, 4) : key == 'code' ? maxLength(val, 6) : {flag: false};
             },
             _submit(){
-                this.isNormal ? this.submit(Object.assign({}, this.vStore)) : this.picSrc = '';
+                let self  = this,
+                    store = self.vStore;
+                self.isNormal ? self.submit(Object.assign({}, store))
+                    : otpApi.verifyCaptcha({
+                    captchaInput: store.picCode,
+                    captchaId   : store.captchaId
+                }).then(function (res) {
+                    if (res.code == '000000') {//图片验证码正确
+                        store.captchaToken = res.data.captchaToken;
+                        self.picSrc        = '';
+                    } else $dialog.toast('验证码不正确', 2500);
+                });
             },
             sendOtp(){
-//                this.send || ++this.send && this.countDown();
-                this.picSrc = 'https://cashier.1qianbao.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd';
+                let self       = this,
+                    trySendSms = self.trySendOtp || otpApi.trySendOTP;
+                if (!isFunction(trySendSms))
+                    return $log.error('trySendOtp is not function');
+                let {phone, captchaToken, deviceId} = this.vStore;
+                if (!isPhone(phone).flag)
+                    return $log.debug('phone number is invalid');
+                this.send || ++this.send && trySendSms.call(otpApi, phone,
+                    captchaToken, deviceId, extend({}, this.extraData))
+                    .then(function (res) {
+                        --self.send;
+                        switch (res.code) {
+                            case '000000':
+                                return ++self.send, self.countDown();
+                            case '000001':
+                                return self._setValue(res.data || {});
+                            default:
+                                $dialog.toast(res.message, 2500);
+                        }
+                    }, () => --self.send);
             },
             countDown(){
                 this.btnTxt = this.count <= 0 ? '重新获取' : this.count + 's';
@@ -100,7 +135,13 @@
                 );
             },
             refresh(){
-                this.picSrc = 'https://cashier.1qianbao.com/gtproxy/captchacode/code/9/3f5d1468-06f9-46c4-bf03-c1d7ef5038bd?t=' + new Date().getTime();
+                otpApi.refreshCaptcha().then(res => {
+                    if (res.code == '000000') this._setValue(res.data || {});
+                });
+            },
+            _setValue(data){
+                this.vStore.captchaId = data.captchaId;
+                this.picSrc           = data.captchaUrl + "?r=" + Math.random();
             }
         },
         watch     : {

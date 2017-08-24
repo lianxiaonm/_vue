@@ -25,7 +25,6 @@
         },
         methods   : {
             _click(item){
-                if (this.value && this.value.code == item.code) return;
                 this.$emit('input', item);
                 typeof this.change == 'function' && this.change();
             },

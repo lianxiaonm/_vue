@@ -1,7 +1,7 @@
 <template>
     <div class="filter-body" :class="[ typeClass ]">
         <v-filter v-for="(filter,idx) in list"
-                  v-model="codes[idx]"
+                  v-model="select[idx]"
                   :key="idx"
                   :list="filter"
                   :change="_commit.bind(this,idx)"/>
