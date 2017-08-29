@@ -2,8 +2,8 @@
     <div class="key-body complex" :class="typeClass()">
         <slot/><!-- 内嵌插槽--组合组件  -->
         <h5><i/>安全键盘</h5>
-        <ul v-for="(ks,idx) in keys" :class="'line_'+idx" @click="_click">
-            <li v-for="k in ks" :class="getClass(k)">{{k}}</li>
+        <ul v-for="(ks,idx) in keys" :key="idx" :class="'line_'+idx" @click="_click">
+            <li v-for="(k,j) in ks" :key="j" :class="getClass(k)" v-html="k"/>
         </ul>
     </div>
 </template>

@@ -11,8 +11,10 @@
             <div class="popup-btns" v-if="btnList">
             <span class="btn"
                   v-for="(b, i) in btnList"
+                  :key="i"
                   :class="b.type||'btn-default'"
-                  @tap="close(i)">{{b.text}}</span>
+                  @tap="close(i)"
+                  v-html="b.text"/>
             </div>
         </div>
     </v-pop>

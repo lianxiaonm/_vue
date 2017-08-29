@@ -2,9 +2,10 @@
     <v-modal v-model="showModal">
         <div class="action-sheet">
             <ul class="item-view">
-                <li v-for="(btn,idx) in btnList"
+                <li class="item-list"
+                    v-for="(btn,idx) in btnList"
+                    :key="idx"
                     @tap="_click(idx)"
-                    class="item-list"
                     v-html="btn.txt == null ? btn : btn.txt"/>
             </ul>
             <ul class="item-view">

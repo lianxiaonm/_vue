@@ -41,7 +41,7 @@ export const $keyboard = {
             click: char => {
                 char == 'hide' ? this.hide() : click(char);
             }
-        }));
+        }), () => click(false));
     },
     hide    : $modal.hide.bind($modal),
     number  : function (isNine, callback) {

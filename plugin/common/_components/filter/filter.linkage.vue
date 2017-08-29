@@ -1,10 +1,11 @@
 <template>
-    <div class="filter-body" :class="[ typeClass ]">
+    <div class="filter-body"
+         :class="[ typeClass ]">
         <v-filter v-for="(filter,idx) in list"
-                  v-model="select[idx]"
                   :key="idx"
                   :list="filter"
-                  :change="_commit.bind(this,idx)"/>
+                  :change="_commit.bind(this,idx)"
+                  v-model="select[idx]"/>
     </div>
 </template>
 <script type="text/babel">

@@ -23,7 +23,8 @@
         },
         computed: {
             typeClass(){
-                return (this.show ? ['active'] : []).concat(this.position).join(' ');
+                return (this.show ? ['active'] : [])
+                    .concat(this.position).join(' ');
             }
         }
     }

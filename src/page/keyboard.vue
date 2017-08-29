@@ -21,6 +21,9 @@
     import keyboardMixins from '../../plugin/common/_components/mixins/keyboard'
     import { $keyboard } from '../../plugin/common/components/keyboard'
     import { vInput, vForm } from '../../plugin/common/components/form'
+    import $log from '../../plugin/common/services/log'
+
+    const closeFn = $log.debug.bind($log, '关闭键盘');
 
     export default {
         mixins    : [keyboardMixins],
@@ -44,12 +47,12 @@
                     {
                         label   : '密码', placeholder: '全键盘', value: '',
                         readonly: true, type: 'password', name: 'password', require: true,
-                        click   : that => this.keyboard('complex', true, null, that)
+                        click   : that => this.keyboard('complex', true, null, that, closeFn)
                     },
                     {
                         label   : '手机号', placeholder: '数字键盘9', value: '',
                         readonly: true, type: 'text', name: 'count', require: true,
-                        click   : that => this.keyboard('number', true, null, that)
+                        click   : that => this.keyboard('number', true, null, that, closeFn)
                     }
                 ]
             }
@@ -58,7 +61,7 @@
             this.inputs.push({
                 label   : '年龄', placeholder: '数字键盘', value: '',
                 readonly: true, type: 'text', name: 'age',
-                click   : that => this.keyboard('number', false, null, that)
+                click   : that => this.keyboard('number', false, null, that, closeFn)
             })
         },
         methods   : {

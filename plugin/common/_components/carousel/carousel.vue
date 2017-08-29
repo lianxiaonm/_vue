@@ -6,8 +6,10 @@
              @dragend="_dragEnd">
             <slot/>
         </div>
-        <ol class="carousel-indicator" ref="_indicator">
-            <li class="indicator" v-for="slot in $slots.default"/>
+        <ol class="carousel-indicator"
+            ref="_indicator">
+            <li class="indicator"
+                v-for="slot in $slots.default"/>
         </ol>
     </div>
 </template>

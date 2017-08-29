@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { isDefined, forEach, extend } from './common'
-import { $dialog } from '../components/dialog'
 import { remoteApi, apiBaseData } from '../constants/global'
 import utility from './utility'
 
@@ -22,6 +21,8 @@ axios.interceptors.response.use(function (resp) {
         utility.httpRespDataConverter(resp.data, resp.status) :
         resp.data;
 }, function (error) {
+    if (error.response == null)
+        error.message = '网络异常';
     return Promise.reject(error);
 });
 export default function httpRequest() {

@@ -11,8 +11,14 @@
                  :validate="i.validate"
                  :require="i.require"
                  :placeholder="i.placeholder">
-            <img v-if="!isNormal" class="r_btn" :src="picSrc" @tap="refresh"/>
-            <span v-else-if="isNormal&&idx==1" class="r_btn" @tap="sendOtp" v-html="btnTxt"/>
+            <img v-if="!isNormal"
+                 class="r_btn"
+                 :src="picSrc"
+                 @tap="refresh"/>
+            <span v-else-if="isNormal&&idx==1"
+                  class="r_btn"
+                  @tap="sendOtp"
+                  v-html="btnTxt"/>
         </v-input>
     </v-form>
 </template>

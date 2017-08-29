@@ -1,7 +1,7 @@
 <template>
     <div class="form-input"
          :class="{'error':error,'on':isOn,'focus':isFocus,'small':($slots.default || []).length}">
-        <label v-if="label">{{label}}</label>
+        <label v-if="label" v-html="label"/>
         <input autocomplete="off"
                spellcheck="false"
                :type="type"
@@ -45,7 +45,7 @@
         },
         data(){
             return {
-                error   : false,
+                error   : '',
                 isOn    : false,
                 isFocus : false,
                 inputVal: ''

@@ -12,7 +12,7 @@
             </div>
         </div>
         <ol class="carousel-indicator" ref="_indicator">
-            <li class="indicator" v-for="item in items"/>
+            <li class="indicator" v-for="(item,idx) in items" :key="idx"/>
         </ol>
     </div>
 </template>

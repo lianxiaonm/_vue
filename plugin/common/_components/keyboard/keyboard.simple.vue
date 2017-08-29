@@ -3,10 +3,10 @@
         <slot/><!-- 内嵌插槽--组合组件  -->
         <h5><i/>安全键盘</h5>
         <ul class="col number m-row" @click="_click">
-            <li v-for="k in keys" class="col-4" :class="getClass(k)">{{k}}</li>
+            <li class="col-4" v-for="(k,idx) in keys" :key="idx" :class="getClass(k)" v-html="k"/>
         </ul>
         <ul class="col num-other" @click="_click">
-            <li v-for="o in others" :class="getClass(o)">{{o}}</li>
+            <li v-for="(o,idx) in others" :key="idx" :class="getClass(o)" v-html="o"/>
         </ul>
     </div>
 </template>

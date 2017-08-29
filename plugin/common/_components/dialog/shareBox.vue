@@ -1,14 +1,17 @@
 <template>
     <v-modal v-model="showModal">
-        <div class="share-box" :class="screen">
+        <div class="share-box"
+             :class="screen">
             <div class="share-banner"/>
-            <p class="share-text" v-html="text || '默认的分享title'"/>
+            <p class="share-text"
+               v-html="text || '默认的分享title'"/>
             <ul class="m-row share-icon">
                 <li class="col-3"
-                    v-for="item in items"
+                    v-for="(item,idx) in items"
+                    :key="idx"
                     :class="item.className"
-                    @tap="_click(item)">{{item.text}}
-                </li>
+                    @tap="_click(item)"
+                    v-html="item.text"/>
             </ul>
         </div>
     </v-modal>

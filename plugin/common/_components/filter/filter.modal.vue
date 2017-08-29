@@ -1,11 +1,14 @@
 <template>
-    <v-modal v-model="showModal" :class="[ typeClass ]" class="filter-modal">
-        <div class="filter-body" :class="[ typeClass ]">
+    <v-modal v-model="showModal"
+             :class="[ typeClass ]"
+             class="filter-modal">
+        <div class="filter-body"
+             :class="[ typeClass ]">
             <v-filter v-for="(filter,idx) in list"
-                      v-model="select[idx]"
                       :key="idx"
                       :list="filter"
-                      :change="_commit.bind(this,idx)"/>
+                      :change="_commit.bind(this,idx)"
+                      v-model="select[idx]"/>
         </div>
     </v-modal>
 </template>

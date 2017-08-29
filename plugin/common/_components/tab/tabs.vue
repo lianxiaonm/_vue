@@ -1,13 +1,15 @@
 <template>
     <div class="tab-view" :class="{'inline-x':scrollType}">
         <v-scroll v-if="scrollType" :options="options" class="tab-nav-v1">
-            <span v-for="tab in tabs"
+            <span v-for="(tab,idx) in tabs"
+                  :key="idx"
                   v-html="tab.label"
                   @tap="_click(tab.key)"
                   :class="{on:active[tab.key]}"/>
         </v-scroll>
         <ul v-else class="tab-nav">
-            <li v-for="tab in tabs"
+            <li v-for="(tab,idx) in tabs"
+                :key="idx"
                 v-html="tab.label"
                 @tap="_click(tab.key)"
                 :class="{on:active[tab.key]}"/>
@@ -28,9 +30,7 @@
         props     : {
             defaultActive: '',
             type         : '',
-            change       : {
-                default: () => {}
-            }
+            change       : ''
         },
         data(){
             return {

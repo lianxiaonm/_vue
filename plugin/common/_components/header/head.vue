@@ -7,12 +7,15 @@
         </div>
         <h3 class="head-title"
             :class="tabState"
-            @tap="_click" v-html="title.value || '默认标题'"/>
+            @tap="_click"
+            v-html="title.value || '默认标题'"/>
         <div class="head-right">
-            <i v-for="r in right"
+            <i v-for="(r,i) in right"
+               :key="i"
                :style="r.bgStyleTmpl"
                :class="{'icon':r.isOnlyImage}"
-               @tap="r.onClickHandler">{{r.isOnlyTitle ? r.textValue : ''}}</i>
+               @tap="r.onClickHandler"
+               v-html="r.isOnlyTitle ? r.textValue : ''"/>
         </div>
     </header>
 </template>

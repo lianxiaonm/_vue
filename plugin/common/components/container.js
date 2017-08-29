@@ -27,27 +27,34 @@ export const $modal = {
      * component -- vue组件对象 -- 此组件对象mixins中modal.js
      * opts -- 组件支持的props
      */
-    show(component, _opts){
+    show(component, _opts, closefn){
         for (let prop in _opts) {
             if (_opts.hasOwnProperty(prop)) {
-                component[prop] = prop == 'click' ? this.hide.bind(this, _opts[prop]) : _opts[prop];
+                component[prop] = prop == 'click' ?
+                    this.hide.bind(this, _opts[prop]) :
+                    _opts[prop];
             }
         }
         let _component = this._component;
         if (_component && _component._uid !== component._uid) {
             setTimeout(() => {
                 _component.$destroy(), $body.remove(_component.$el);
-                this._el = null, this._append(component);
+                this._el = null, this._append(component, closefn);
             }, _component.showModal ? this.delay : 0);//清除容器
             _component.showModal = false;
-        } else this._append(component);
+        } else this._append(component, closefn);
     },
     /*
      * 私有方法 -- 不建议外部使用
      */
-    _append(component){
+    _append(component, closefn){
         this._el || $body.append(this._el = createElement('div'));//建立容器
         this._component = component.$mount(this._el);
+        component.$off();
+        component.$on('update:showModal',
+            function (msg) {
+                msg || closefn && closefn();
+            });
         Vue.nextTick(() => this._component.showModal = true);
     },
     /*
@@ -56,7 +63,9 @@ export const $modal = {
      */
     hide(callback, args2){
         let noClose = args2 === true;
-        noClose || this._component && (this._component.showModal = false);
+        noClose || this._component && (
+            this._component.showModal = false
+        );
         setTimeout(() => {
             callback && callback.apply(null, sliceArgs(arguments, noClose ? 2 : 1))
         }, noClose ? 0 : 300)

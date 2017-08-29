@@ -2,8 +2,10 @@ import { $keyboard } from '../../components/keyboard'
 
 export default {
     methods: {
-        keyboard(type, isNine, maxLen, that){
-            $keyboard[type](isNine, char => this.input(that || this, char, maxLen));
+        keyboard(type, isNine, maxLen, that, closefn){
+            $keyboard[type](isNine, char => {
+                this.input(that || this, char, maxLen) === false && closefn && closefn()
+            });
         },
         input(that, char, maxLen){
             let value = (that.value || '').split('');
@@ -12,7 +14,9 @@ export default {
                     value.splice(-1);
                     break;
                 case '确定':
-                    return $keyboard.hide(), true;
+                    $keyboard.hide();
+                case false:
+                    return !!char;
                 case 'space':
                     value.push(' ');
                     break;

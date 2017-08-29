@@ -1,6 +1,9 @@
 <template>
-    <li class="item-list" :class="{on:isActive}">
-        <div class="collapse-item-bar" @tap="toggle" v-html="getTitle"/>
+    <li class="item-list"
+        :class="{on:isActive}">
+        <div class="collapse-item-bar"
+             @tap="toggle"
+             v-html="getTitle"/>
         <div class="collapse-item-wrap">
             <slot/>
         </div>

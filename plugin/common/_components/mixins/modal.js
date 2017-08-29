@@ -15,9 +15,7 @@ export default {
         showModal: {
             default: false
         },
-        click    : {
-            type: Function
-        }
+        click    : ''
     },
     watch     : {
         showModal(val){
