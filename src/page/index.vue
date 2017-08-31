@@ -45,6 +45,7 @@
                     {url: 'filter', text: '筛选组件'},
                     {url: 'carousel', text: '走马灯'},
                     {url: 'noticeBar', text: '通告栏'},
+                    {url: 'step', text: '步骤条'},
                 ]
             }
         },

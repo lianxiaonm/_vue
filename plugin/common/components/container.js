@@ -4,7 +4,7 @@ import vPop from '../_components/container/pop.vue'
 import vModal from '../_components/container/modal.vue'
 import vLoad from '../_components/container/load.vue'
 
-import { createElement, $body, sliceArgs, extend } from '../services/common'
+import { createElement, $body, sliceArgs, extend, isFunction } from '../services/common'
 
 const components = [
     vPop,
@@ -63,9 +63,7 @@ export const $modal = {
      */
     hide(callback, args2){
         let noClose = args2 === true;
-        noClose || this._component && (
-            this._component.showModal = false
-        );
+        noClose || this._component && (this._component.showModal = false);
         setTimeout(() => {
             callback && callback.apply(null, sliceArgs(arguments, noClose ? 2 : 1))
         }, noClose ? 0 : 300)

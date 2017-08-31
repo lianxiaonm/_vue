@@ -13,7 +13,8 @@ const routes = [
     require('../routers/collapseRouter').default,
     require('../routers/filterRouter').default,
     require('../routers/tabsRouter').default,
-    require('../routers/carouselRouter').default
+    require('../routers/carouselRouter').default,
+    require('../routers/stepRouter').default
 ]
 
 export default new VueRouter({
