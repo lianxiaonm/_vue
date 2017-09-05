@@ -1,9 +1,9 @@
 @import (reference) "mixins.less";
 
 .step-ul {
-    .px2rem(padding, 30);
+    .px2auto-multi(padding, 30, 30, 30, 48);
     .step-li {
-        .px2rem(padding, 30, 40);
+        .px2auto-multi(padding, 35, 30, 0);
         position: relative;
         &:before, > .icon-font { position: absolute; left: 0; }
         &:before {
@@ -16,14 +16,16 @@
             -webkit-transform: translateX(-50%) scaleX(.5); transform: translateX(-50%) scaleX(.5);
         }
         > .icon-font {
-            .px2rem(min-width, 24);
-            .px2rem(min-height, 24);
+            .px2rem(padding, 3);
+            .px2rem(min-height, 14);
+            .px2rem(min-width, 14);
             background: #BBB;
-            .px2rem(top, 52);
+            color: #FFF;
+            .px2rem(top, 57);
             z-index: 9;
-            border-radius: 100%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            border-radius: 100px;
+            -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
+            .px2rem(font-size, 28);
         }
         > h4 { .px2rem(font-size, 28); .px2rem(line-height, 44); }
         > p { color: #666; }
@@ -35,7 +37,7 @@
         }
         &:last-of-type {
             .px2rem(padding-bottom, 0);
-            &:before { bottom: auto; .px2rem(height, 52); }
+            &:before { bottom: auto; .px2rem(height, 57); }
         }
         &.success { color: #108EE9;
             &:before, > .icon-font { background: #108EE9; }

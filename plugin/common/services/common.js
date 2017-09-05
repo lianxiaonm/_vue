@@ -61,6 +61,10 @@ export function toJson(obj, pretty) {
     return isUndefined(obj) ? undefined : JSON.stringify(obj, toJsonReplacer, pretty ? '  ' : null);
 }
 
+export function fromJson(json) {
+    return isString(json) ? JSON.parse(json) : json;
+}
+
 export function trim(val) {
     return isString(val) ? val.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') : val;
 }

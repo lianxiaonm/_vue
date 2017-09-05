@@ -52,7 +52,12 @@
                 $dialog.spinner(text);
             },
             toast(text){
-                $dialog.toast(text, $log.debug)
+                $dialog.toast(text, 864000)
+                setTimeout(function () {
+                    $dialog.closeSpinner();
+                    $dialog.toast(text);
+                }, 1000)
+
             },
             actionSheet(btnList) {
                 $dialog.actionSheet(btnList, $log.debug);

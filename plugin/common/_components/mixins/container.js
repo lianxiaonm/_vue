@@ -8,7 +8,8 @@ export default {
         }
     },
     data(){
-        this.value && setTimeout(() => this._show(), 16.7);
+        if (this.value)
+            this._timer = setTimeout(() => this._show(), 16.7);
         return {
             show: false
         }
@@ -26,7 +27,8 @@ export default {
     },
     watch  : {
         value(val){
-            setTimeout(() => this[val ? '_show' : '_hide'](), 16.7)
+            this._timer && clearTimeout(this._timer);
+            this._timer = setTimeout(() => this[val ? '_show' : '_hide'](), 16.7)
         },
         show(val){
             $backdrop[val ? 'retain' : 'release']();
