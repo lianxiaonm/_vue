@@ -25,6 +25,7 @@ function storage() {
             key === _timeKey ? _timeValue = value :
                 _data[key] = value;
         });
+        isBrowser && this._save();
     } catch (e) {
         $log.error(e), _data = {};
     }
@@ -53,10 +54,10 @@ storage.prototype = {
             if (_value < nowTime) {
                 delete _data[key], delete _timeValue[key];
             } else {
-                minTime = _value < minTime ? _value : minTime;
+                minTime = minTime == 0 ? _value : Math.min(_value, minTime);
             }
         });
-        forEach(this.data, function (value, key) {
+        forEach(_data, function (value, key) {
             localStorage.setItem(key, toJson(value));
         }), localStorage.setItem(_timeKey, toJson(_timeValue));
         //倒计时
