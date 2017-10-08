@@ -26,19 +26,22 @@
         }
     }
 }
+
 .picker-title { display: flex; display: -webkit-flex;
     h5 {
         .px2rem(height, 60); .px2rem(line-height, 60); .px2rem(font-size, 24);
         flex: 1; -webkit-flex: 1; text-align: center; font-weight: 400; color: #999;
     }
 }
+
 .picker-body { display: flex; display: -webkit-flex;
     .picker { flex: 1; -webkit-flex: 1; }
 }
+
 .model-container {
     .pop-picker {
         .pop-picker-header {
-            .px2rem(height, 80); position: relative; font-size: 1.1em;
+            .px2rem(height, 80); position: relative; font-size: 1.15em; background: #EFEFEF;
             .btn {
                 .px2rem(height, 80); .px2rem(line-height, 80); .px2auto-multi(padding, 0, 30);
                 background: transparent; letter-spacing: 1px;
@@ -46,6 +49,6 @@
                 &:last-of-type { float: right }
             }
         }
-        .picker { .px2rem(height, 400); }
+        .picker { .px2rem(height, 420); background: #FFF; }
     }
 }

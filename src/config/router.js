@@ -14,7 +14,8 @@ const routes = [
     require('../routers/filterRouter').default,
     require('../routers/tabsRouter').default,
     require('../routers/carouselRouter').default,
-    require('../routers/stepRouter').default
+    require('../routers/stepRouter').default,
+    require('../routers/pickerRouter').default
 ]
 
 export default new VueRouter({

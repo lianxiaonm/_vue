@@ -40,12 +40,11 @@
                     {url: 'form', text: 'form表单'},
                     {url: 'password', text: '密码组件'},
                     {url: 'tabs', text: 'tab页组件'},
-                    {url: 'tabBar', text: '标签栏组件'},
                     {url: 'collapse', text: '折叠面板'},
                     {url: 'filter', text: '筛选组件'},
                     {url: 'carousel', text: '走马灯'},
-                    {url: 'noticeBar', text: '通告栏'},
                     {url: 'step', text: '步骤条'},
+                    {url: 'picker', text: '选择器'},
                 ]
             }
         },

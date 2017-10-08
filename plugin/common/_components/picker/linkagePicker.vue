@@ -13,12 +13,12 @@
         components: {
             picker
         },
-        props: {
+        props     : {
             pkList: {
-                type: Array, default: []
+                default: []
             },
             select: {
-                type: Array, default: []
+                default: []
             }
         },
         data(){
@@ -26,9 +26,9 @@
                 pMap: createLinkPicker(this.pkList, [], this.select)
             }
         },
-        methods: {
+        methods   : {
             getValue(){
-                let value = [],
+                let value  = [],
                     select = this.select;
                 this.pMap.forEach((p, i) => {
                     value.push(p[select[i]]);
@@ -39,7 +39,7 @@
         beforeUpdate(){
             console.log('beforeUpdate')
         },
-        watch: {
+        watch     : {
             select(val){
                 this.pMap = createLinkPicker(this.pkList, [], val);
             },
@@ -50,8 +50,8 @@
     }
 
     function createLinkPicker(list, pickerMap, select) {
-        let len = pickerMap.length,
-            _select = select[len] || (select[len] = 0),
+        let len      = pickerMap.length,
+            _select  = select[len] || (select[len] = 0),
             children = (list[_select] || {}).children;
         pickerMap.push(list.map(n => { return {txt: n.txt, val: n.val} }));
         return isArray(children) ? createLinkPicker(children, pickerMap, select) : pickerMap;

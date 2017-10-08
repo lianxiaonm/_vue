@@ -15,28 +15,26 @@
     import datePicker from './datePicker.vue'
     import linkagePicker from './linkagePicker.vue'
     export default {
-        mixins: [_modal],
+        mixins    : [_modal],
         components: {
             datePicker,
             linkagePicker
         },
-        props: {
-            type: {
+        props     : {
+            type   : {
                 type: String,
             },
             options: {
-                type: Object,
                 default: {}
             },
-            select: {
-                type: Array,
+            select : {
                 default: []
             }
         },
-        methods: {
+        methods   : {
             _click(ret){
                 this.showModal = false;
-                ret && this.click(this.$refs._picker.getValue());
+//                ret && this.click(this.$refs._picker.getValue());
             }
         }
     }

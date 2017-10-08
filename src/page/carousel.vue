@@ -68,7 +68,7 @@
                     {
                         src : '//fuss10.elemecdn.com/d/38/7bddb07503aea4b711236348e2632jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/',
                         name: '午餐'
-                    },
+                    }
                 ], [
                     {
                         src : '//fuss10.elemecdn.com/b/72/97eb62f05c42217e130b6658bd0b2jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/',
@@ -101,7 +101,7 @@
                     {
                         src : '//fuss10.elemecdn.com/3/c7/a9ef469a12e7a596b559145b87f09jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/',
                         name: '麻辣烫'
-                    },
+                    }
                 ]],
                 auto   : 8000
             }

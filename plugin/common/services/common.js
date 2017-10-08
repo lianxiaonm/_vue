@@ -111,6 +111,7 @@ export function extend(dst) { //浅复制 TXDX
     }
     return dst;
 }
+if (!hasOwnProperty.call(Object, 'assign')) Object.assign = extend;
 
 let F = function () {}
 export function inherit(C, P) {
