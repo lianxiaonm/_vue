@@ -24,7 +24,7 @@ export const isBrowser = !!(typeof window !== 'undefined' && window.document);
 
 export function lowercase(string) { return isString(string) ? string.toLowerCase() : string }
 export function uppercase(string) { return isString(string) ? string.toUpperCase() : string }
-export function hasOwnprop(obj, key) { return obj && hasOwnProperty.call(obj, key) }
+export function ownProperty(obj, key) { return obj && hasOwnProperty.call(obj, key) }
 export function isWindow(object) { return object && object.window === object }
 
 export function isType(obj) { return typeof obj == _OBJ || typeof obj == _FUN ? class2type[toString.call(obj)] || _OBJ : typeof obj;}
@@ -132,11 +132,12 @@ if (!hasOwnProperty.call(Object, 'assign')) Object.assign = extend;
 
 export function copy(source, dest, stackSource, stackDest) {
 	var type, result, i, ii, _source;
-	if (isWindow(source) || (!dest && source === dest))
+	if (isWindow(source) || (dest && source === dest))
 		throw Error('Can\'t copy! Window instances is not supported or Source and destination are identical');
 	else if (!dest) {
 		type = isType(dest = source);
-		if (type === _ARR) {
+		if (source == null) {
+		} else if (type === _ARR) {
 			dest = copy(source, [], stackSource, stackDest);
 		} else if (type === _DAT) {
 			dest = new Date(source.getTime());
@@ -213,12 +214,12 @@ function forEachSorted(obj, iterator, context) {
 	return keys;
 }
 export function toQueryString(params) {
-	var parts = [];
+	let parts = [];
 	forEachSorted(params, function (value, key) {
 		if (value == null) return;
 		if (!isArray(value)) value = [value];
 		forEach(value, function (v) {
-			isObject(v) ? v = v instanceof Date ? v.toISOString() : toJson(v) : '';
+			isObject(v) ? v = isDate(v) ? v.toISOString() : toJson(v) : '';
 			parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(v));
 		});
 	});
@@ -226,7 +227,7 @@ export function toQueryString(params) {
 }
 export function buildUrl(url, params) {
 	if (!params) return url;
-	var parts = toQueryString(params);
+	let parts = toQueryString(params);
 	if (parts.length > 0) url += (url.indexOf('?') == -1 ? '?' : '&') + parts;
 	return url;
 }
