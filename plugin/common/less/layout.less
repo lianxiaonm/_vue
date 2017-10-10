@@ -10,6 +10,19 @@ html { -webkit-text-size-adjust: 100%; }
 body {
     -webkit-overflow-scrolling: touch;
     font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    &:before {
+        position: fixed; top: 0; left: 0; width: 0; .px2rem(height, 4); z-index: 99999; content: ''; opacity: 0;
+        -webkit-transition: width 2s cubic-bezier(.2,.8,.9,1);
+        transition: width 2s cubic-bezier(.2,.8,.9,1);
+        background-color: #0087FF;
+    }
+    &.transition {
+        &:before { width: 85%; opacity: 1; }
+        &.on:before {
+            width: 100%; -webkit-transition: width .3s ease-in;
+            transition: width .3s ease-in;
+        }
+    }
 }
 
 ul, li { list-style: none }
